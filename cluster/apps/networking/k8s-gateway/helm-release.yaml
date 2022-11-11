@@ -28,8 +28,7 @@ spec:
     ttl: 1
     service:
       type: LoadBalancer
-      port: 53
-      
-      externalIPs: ["${SVC_K8S_GW_ADDRR}"]
-        
+      externalIPs:
+        - ${K8S_GATEWAY_IP}
       externalTrafficPolicy: Local
+      port: 53
