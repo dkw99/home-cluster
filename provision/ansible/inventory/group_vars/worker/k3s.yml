@@ -11,3 +11,5 @@ k3s_agent:
   kubelet-arg:
     # Allow k8s services to contain TCP and UDP on the same port
     - "feature-gates=MixedProtocolLBService=true"
+    # Required resolve ndots:5 from DNS issues
+    - "resolv-conf=/etc/k3s-resolv.conf"
