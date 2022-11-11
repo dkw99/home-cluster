@@ -32,3 +32,4 @@ spec:
         - ${K8S_GATEWAY_IP}
       externalTrafficPolicy: Local
       port: 53
+      
