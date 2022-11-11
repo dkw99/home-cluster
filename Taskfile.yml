@@ -19,6 +19,7 @@ includes:
   precommit: .taskfiles/PrecommitTasks.yml
   terraform: .taskfiles/TerraformTasks.yml
   sops: .taskfiles/SopsTasks.yml
+  tools: .taskfiles/ToolsTask.yml
 
 tasks:
 
