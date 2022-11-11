@@ -34,7 +34,7 @@ spec:
         spec:
           secretName: "${SECRET_PUBLIC_DOMAIN}-tls"
           issuerRef:
-            name: "letsencrypt-production"
+            name: "letsencrypt-staging"
             kind: ClusterIssuer
           commonName: "${SECRET_PUBLIC_DOMAIN}"
           dnsNames:
