@@ -3,8 +3,11 @@
 # timezone: "America/New_York"
 
 # (list) Additional ssh public keys to add to the nodes
-# ssh_authorized_keys:
-
+ssh_authorized_keys:
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJK0w1/2CZxbPpekTjqHd+GMHtzo+CQ1DjI15wXwgKeG dkwise@DKW-LAPTOP
+  - ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAFLbi12dpc1zBJZF1pke+v+GL+4NQpYd8LEfX5jZxTgzQdSn7m/LulDzPyDTlJgYKmiXRE5+BALqEhDI+Zqiae30wFeHNRQUqCiujzQs7XKee3ro2jdnYhA7BbRFl0BHnI9f+aE6PtHXlfnPLp+JtOF3RSl8yQb3vdehFV3SvbKkTnj/w== darren.wise@MichellesiMac2.home.lan
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCxP707b9Ydkbl5LrPbPX7smZcP5HG1R9EgkO+emwuuq98lqZo7lsS25oY5kiAKwsCE/+c+Fw6X8lzWgFv+TbIXQ82dQBFUyp8YtXxJcCISakakJgqULqUUM0ZJOA3SjmR1JDXW3YwOfG9PACmfMtarVi2m0AKMQ5Ym7mRcX/WAKEqWIe7Khv1+2th5GVqLas1jevmtzrivWsJWNUnlf45YSf9T7eH07TjfiJAe4EvFrkL/5Mi+cnud6ZoWEg83MrlUS93jR9ieV3GAW8OrFBAa6roqSNIpkzfydFH+C9J+0hEeWYH1/Hf1cgQnaYmC+/21ZaZMoqjS4Dq5iHPpFUpMv6moTxSut+tb7FVEwBDdVc0bynKgxbBzoStU4oAo+0h+yNiKSPm1DvWM86qBZpyP583YlW5zFAsX1OAaFGikewK3U7TM8YVet9YUewVpulK7sgWltcxs/vFdIdPhjtJQRd9mUM6qpIczjzYAF/+GNgau5h3//SMZWKXgJ9VOctNEd43MamFilW6STiRfK/Ehx4m4p4GNEvCf9sVNelty2Dnv26inun+fGoMogo4AMgQmtCJU7tmEV7YTMQsAIRkh326oRmaD1cLRIuk6vJeUCniVp0XzRC5me+9ISzJRNDWG1z7bbc8n1zmAzBjamhiErqXfRX+D4AUlukn/tc+I9Q== dkwise@dev-server
+  -
 packages:
   - "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
   - "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm"
@@ -18,6 +21,7 @@ packages:
   - lm_sensors
   - nano
   - nvme-cli
+  - open-vm-tools
   - socat
   - python3-libselinux
   # TODO(ansible): Might be required for newer Intel CPU generations

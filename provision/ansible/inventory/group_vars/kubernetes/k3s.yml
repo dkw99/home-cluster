@@ -3,7 +3,6 @@
 # Below vars are for the xanmanning.k3s role
 # ...see https://github.com/PyratLabs/ansible-role-k3s
 #
-
 # (string) Use a specific version of k3s
 # renovate: datasource=github-releases depName=k3s-io/k3s
 k3s_release_version: "v1.25.3+k3s1"
@@ -35,3 +34,7 @@ k3s_server_manifests_urls:
 # /var/lib/rancher/k3s/server/manifests
 k3s_server_manifests_templates:
   - "calico-installation.yaml.j2"
+  - "calico-bgpconfiguration.yaml.j2"
+  - "calico-bgppeer.yaml.j2"
+
+k3s_resolv_nameserver: 192.168.16.1
