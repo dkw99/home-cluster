@@ -106,7 +106,7 @@ spec:
             activeStandby: true
             resources:
               requests:
-                cpu: 1000m
+                cpu: 512m
                 memory: 512Mi
               limits:
                 memory: 2Gi
