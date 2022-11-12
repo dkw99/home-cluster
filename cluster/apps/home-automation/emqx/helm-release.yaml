@@ -37,7 +37,7 @@ spec:
       loadBalancerIP: ${EMQX_MQTT_IP}
     ingress:
       annotations:
-        cert-manager.home.arpa/enabled: "true"
+        #cert-manager.home.arpa/enabled: "true"
         cert-manager.io/cluster-issuer: "letsencrypt-production"
       dashboard:
         enabled: true
