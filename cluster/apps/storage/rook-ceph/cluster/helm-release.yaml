@@ -39,7 +39,7 @@ spec:
         tls:
           - hosts:
               - *host
-            secretName: rook-mgr-tls
+            secretName: rook-ceph-mgr-tls
     configOverride: |
       [global]
       bdev_enable_discard = true
