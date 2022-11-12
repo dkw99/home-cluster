@@ -36,6 +36,10 @@ spec:
         ingressClassName: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
+    
+          nginx.ingress.kubernetes.io/backend-protocol: HTTP
+          nginx.ingress.kubernetes.io/server-snippet: |
+            proxy_ssl_verify off;
         host:
           name: &host "rook.${SECRET_PUBLIC_DOMAIN}"
           path: /
