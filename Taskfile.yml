@@ -20,6 +20,8 @@ includes:
   terraform: .taskfiles/TerraformTasks.yml
   sops: .taskfiles/SopsTasks.yml
   tools: .taskfiles/ToolsTasks.yml
+  debug: .taskfiles/DebugTasks.yml
+  rook: .taskfiles/RookTasks.yml
 
 tasks:
 

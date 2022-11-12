@@ -28,6 +28,9 @@ spec:
     monitoring:
       enabled: true
       createPrometheusRules: true
+    dashboard:
+      enabled: true
+      port: 7000
     ingress:
       dashboard:
         ingressClassName: "nginx"
