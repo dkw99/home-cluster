@@ -104,12 +104,12 @@ spec:
           metadataServer:
             activeCount: 1
             activeStandby: true
-            resources:
-              requests:
-                cpu: 512m
-                memory: 512Mi
-              limits:
-                memory: 2Gi
+            # resources:
+            #   requests:
+            #     cpu: 512m
+            #     memory: 512Mi
+            #   limits:
+            #     memory: 2Gi
         storageClass:
           enabled: true
           isDefault: false
