@@ -29,12 +29,12 @@ spec:
       - apiVersion: cert-manager.io/v1
         kind: Certificate
         metadata:
-          name: "${SECRET_PUBLIC_DOMAIN}"
+          name: "${SECRET_PUBLIC_DOMAIN}-wild"
           namespace: networking
         spec:
           secretName: "${SECRET_PUBLIC_DOMAIN}-tls"
           issuerRef:
-            name: "letsencrypt-staging"
+            name: "letsencrypt-pruduction"
             kind: ClusterIssuer
           commonName: "${SECRET_PUBLIC_DOMAIN}"
           dnsNames:
