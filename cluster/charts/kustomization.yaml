@@ -12,4 +12,5 @@ resources:
   - kubereboot-charts.yaml
   - k8s-gateway-charts.yaml
   - metrics-server-charts.yaml
+  - rook-ceph-charts.yaml
   - stakater-charts.yaml
