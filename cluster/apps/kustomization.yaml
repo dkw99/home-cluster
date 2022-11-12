@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - default
   - flux-system
+  - home-automation
   - kube-system
   - kube-tools
   - networking
