@@ -28,18 +28,11 @@ spec:
     monitoring:
       enabled: true
       createPrometheusRules: true
-    dashboard:
-      enabled: false
-      ssl: false
     ingress:
       dashboard:
         ingressClassName: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-    
-          nginx.ingress.kubernetes.io/backend-protocol: HTTP
-          nginx.ingress.kubernetes.io/server-snippet: |
-            proxy_ssl_verify off;
         host:
           name: &host "rook.${SECRET_PUBLIC_DOMAIN}"
           path: /
@@ -57,7 +50,7 @@ spec:
       crashCollector:
         disable: false
       dashboard:
-        enabled: true
+        enabled: false
         urlPrefix: /
         ssl: false
       storage:
@@ -114,9 +107,9 @@ spec:
             resources:
               requests:
                 cpu: 1000m
-                memory: 2Gi
+                memory: 512Mi
               limits:
-                memory: 4Gi
+                memory: 2Gi
         storageClass:
           enabled: true
           isDefault: false
