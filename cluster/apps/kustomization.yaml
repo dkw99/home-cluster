@@ -7,6 +7,7 @@ resources:
   - kube-system
   - kube-tools
   - networking
+  - storage
   - system-upgrade
   - web-tools
   
