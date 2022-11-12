@@ -30,7 +30,8 @@ spec:
       createPrometheusRules: true
     dashboard:
       enabled: true
-      port: 8080
+      port: 7000
+      ssl: false
     ingress:
       dashboard:
         ingressClassName: "nginx"
