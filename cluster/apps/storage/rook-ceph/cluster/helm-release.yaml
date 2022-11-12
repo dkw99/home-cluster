@@ -31,6 +31,8 @@ spec:
     ingress:
       dashboard:
         ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
         host:
           name: &host "rook.${SECRET_PUBLIC_DOMAIN}"
           path: /
