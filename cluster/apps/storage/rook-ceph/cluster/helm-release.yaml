@@ -29,7 +29,7 @@ spec:
       enabled: true
       createPrometheusRules: true
     dashboard:
-      enabled: true
+      enabled: false
       ssl: false
     ingress:
       dashboard:
