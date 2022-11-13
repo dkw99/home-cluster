@@ -38,6 +38,7 @@ spec:
         - ${EMQX_SVC_IP}
       externalTrafficPolicy: Local
     ingress:
+      ingressClassName: nginx
       annotations:
         cert-manager.home.arpa/enabled: "true"
         cert-manager.io/cluster-issuer: "letsencrypt-production"
