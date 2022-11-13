@@ -57,6 +57,7 @@ spec:
       runAsGroup: 568
       fsGroup: 568
       fsGroupChangePolicy: OnRootMismatch
+    
     volumeClaimTemplates:
       - name: config
         mountPath: /config
