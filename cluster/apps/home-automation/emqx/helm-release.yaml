@@ -35,6 +35,7 @@ spec:
     service:
       type: LoadBalancer
       loadBalancerIP: ${EMQX_MQTT_IP}
+      externalTrafficPolicy: Local
     ingress:
       annotations:
         #cert-manager.home.arpa/enabled: "true"
