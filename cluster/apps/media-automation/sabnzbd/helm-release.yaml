@@ -39,6 +39,10 @@ spec:
         sabnzbd.default.svc.cluster,
         sabnzbd.default.svc.cluster.local,
         sabnzbd.${SECRET_PUBLIC_DOMAIN}
+    envFrom:
+      - secretRef:
+          name: *app
+          
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 568
