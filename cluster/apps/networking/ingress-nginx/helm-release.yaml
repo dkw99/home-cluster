@@ -35,7 +35,8 @@ spec:
           value: "${TIMEZONE}"
       service:
         type: LoadBalancer
-        externalIPs: ["${INGRESS_NGINX_IP}"]
+        externalIPs:
+          - ${INGRESS_NGINX_SVC_IP}
         externalTrafficPolicy: Local
       publishService:
         enabled: true

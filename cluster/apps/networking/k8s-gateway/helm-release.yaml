@@ -29,7 +29,7 @@ spec:
     service:
       type: LoadBalancer
       externalIPs:
-        - ${K8S_GATEWAY_IP}
+        - ${K8S_GATEWAY_SVC_IP}
       externalTrafficPolicy: Local
       port: 53
       
