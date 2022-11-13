@@ -34,7 +34,7 @@ spec:
       EMQX_AUTH__MNESIA__PASSWORD_HASH: plain
     service:
       type: LoadBalancer
-      loadBalancerIP: ${EMQX_MQTT_IP}
+      externalIPs: ["${EMQX_MQTT_IP}"]
       externalTrafficPolicy: Local
     ingress:
       annotations:
