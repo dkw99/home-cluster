@@ -21,7 +21,9 @@ spec:
   upgrade:
     remediation:
       retries: 5
-
+  dependsOn:
+    - name: rook-ceph-cluster
+      namespace: rook-ceph
   values:
     image:
       repository: docker.io/esphome/esphome
@@ -50,10 +52,14 @@ spec:
           - hosts:
               - *host
             secretName: esphome-tls
-    persistence:
-      config:
-        enabled: true
-        existingClaim: esphome-config
+    volumeClaimTemplates:
+      - name: config
+        mountPath: /config
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        storageClass: ceph-block
+        labels:
+          snapshot.home.arpa/enabled: "true"
     resources:
       requests:
         cpu: 100m
