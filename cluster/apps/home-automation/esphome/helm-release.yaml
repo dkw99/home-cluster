@@ -2,23 +2,30 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: esphome
+  name: &app frigate
   namespace: default
 spec:
-  releaseName: esphome
-  interval: 10m
+  interval: 15m
   chart:
     spec:
-      chart: esphome
-      version: 8.4.2
+      chart: app-template
+      version: 1.0.1
       sourceRef:
         kind: HelmRepository
-        name: k8s-at-home-charts
+        name: bjw-s-charts
         namespace: flux-system
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+
   values:
     image:
-      repository: esphome/esphome
-      tag: 2022.10.1
+      repository: docker.io/esphome/
+      tag: 2022.10.2
     env:
       ESPHOME_DASHBOARD_USE_PING: true
     ingress:
@@ -30,7 +37,7 @@ spec:
           #auth.home.arpa/enabled: "true"
           cert-manager.io/cluster-issuer: "letsencrypt-production"
         hosts:
-          - host: &host esphome.${DOMAIN}
+          - host: &host esphome.${SECRET_PUBLIC_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
