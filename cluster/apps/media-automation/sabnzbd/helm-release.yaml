@@ -32,6 +32,7 @@ spec:
       tag: 3.7.0@sha256:67bba2c3aa9912817eb3aa070bebeb68313d43a4dd7e4912aeba103c9598bd2e
     env:
       TZ: "${TIMEZONE}"
+      SABNZBD__PORT: &port 80
       HOST_WHITELIST_ENTRIES: >-
         sabnzbd,
         sabnzbd.default,
@@ -42,7 +43,12 @@ spec:
     envFrom:
       - secretRef:
           name: *app
-          
+    service:
+      main:
+        ports:
+          http:
+            port: *port
+
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 568
