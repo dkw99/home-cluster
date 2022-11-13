@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: sonarr
-    namespace: media
+    namespace: default
 stringData:
     SONARR__API_KEY: ENC[AES256_GCM,data:WI95nynaCl+Pyree705ajZ662GC+c+tTjoCwAKcVDO8=,iv:r8DzZrpTNsp8H3l+danUs1PixehwnG9wdnB+R/4rlsQ=,tag:vuIoToF1nfMouHng4YRmiw==,type:str]
 sops:
@@ -20,8 +20,8 @@ sops:
             WTlZN3JFZ2tKYzRBQitMZllIT3lMMnMKs1qkSYiTCIjsyCAOls/lZMobUIyS6fRQ
             Q7eagINn6XYWX2BnePk6Vix/2cTs9h71j9Ts4rjkcfikgKgF1NiUdw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2022-09-11T02:48:17Z"
-    mac: ENC[AES256_GCM,data:oaBdjMNNxK/jsbYYislI84mu/ksWgmrncPuuHBfaiIABRRa0KD7QWmj8Cb6APi93nte6k7vdTfwsljtKIdd2C+3+NTyckJZVqYCR/XvWDyVrImYkIvsNp8g6d5qPyzvCu31XSTnQ9urIXAOaLxqOZBSNutp3M+YJ9j86tnurOm0=,iv:j/mXjgnjDmd2+dJmj3+vlpX90h89bjRP4e75mNEBI9o=,tag:ZjdlzOotCMvPoXbVC4Xjtw==,type:str]
+    lastmodified: "2022-11-13T03:03:53Z"
+    mac: ENC[AES256_GCM,data:UnXHeQIpdiUAYSFXK6iwh2AvjFLd1aHs1f5jcKNDAEZITTw4Rt4eh2e2yCxQGkFloVEDDds7mIoP5edLUbDMo5mdiSVFz/Wb6fowQzCn8j82YKOhO4BR8S27iAOl2T6rVYihS7XEtAp4hf73TEQ+MeC2ErBMYMHplqfLJU6dCdQ=,iv:Rdk0+FFyoohrtzODWarlCKc7SWaQWvtSBe0TBRza14k=,tag:+L26f8cFBa7ns4VoGFmUDw==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.7.3
