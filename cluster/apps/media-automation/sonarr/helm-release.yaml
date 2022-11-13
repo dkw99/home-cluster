@@ -66,7 +66,7 @@ spec:
         type: custom
         volumeSpec:
           nfs:
-            server: "nas.${SECRET_PRIVATE_DOMAIN}"
+            server: "NFS1.${SECRET_PRIVATE_DOMAIN}"
             path: /volume1/Media
         readOnly: false
         accessMode: ReadWriteOnce
@@ -76,7 +76,7 @@ spec:
         type: custom
         volumeSpec:
           nfs:
-            server: "nas.${SECRET_PRIVATE_DOMAIN}"
+            server: "NFS1.${SECRET_PRIVATE_DOMAIN}"
             path: /volume1/Downloads
         mountPath: /downloads
         readOnly: false
@@ -87,7 +87,7 @@ spec:
         type: custom
         volumeSpec:
           nfs:
-            server: "nas.${SECRET_PRIVATE_DOMAIN}"
+            server: "NFS1.${SECRET_PRIVATE_DOMAIN}"
             path: /volume1/k3sCluster/Apps/External/Backups/sonarr
         mountPath: /config/Backups
         accessMode: ReadWriteOnce
