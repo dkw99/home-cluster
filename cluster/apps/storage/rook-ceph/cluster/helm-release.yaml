@@ -50,9 +50,10 @@ spec:
       crashCollector:
         disable: false
       dashboard:
-        enabled: false
+        enabled: true
         urlPrefix: /
         ssl: false
+        # service-type: NodePort
       storage:
         useAllNodes: false
         useAllDevices: false
