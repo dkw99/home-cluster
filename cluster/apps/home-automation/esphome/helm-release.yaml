@@ -24,7 +24,7 @@ spec:
 
   values:
     image:
-      repository: docker.io/esphome/
+      repository: docker.io/esphome/esphome
       tag: 2022.10.2
     env:
       ESPHOME_DASHBOARD_USE_PING: true
