@@ -32,11 +32,11 @@ spec:
       tag: 0.4.10.2086@sha256:5c772a00fd925ee590231f62ad12557c5d1b40f25da964ff282dcbafdc14d2ad
     env:
       TZ: ${TIMEZONE}
-    podSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
-      fsGroupChangePolicy: "OnRootMismatch"
+    service:
+      main:
+        ports:
+          http:
+            port: *port    
     ingress:
       main:
         enabled: true
@@ -55,6 +55,11 @@ spec:
           - hosts:
               - *host
             # secretName: "{{ .Release.Name }}-tls"
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
     volumeClaimTemplates:
       - name: config
         mountPath: /config
