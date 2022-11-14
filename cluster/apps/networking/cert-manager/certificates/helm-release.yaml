@@ -30,7 +30,7 @@ spec:
         kind: Certificate
         metadata:
           name: "${SECRET_PUBLIC_DOMAIN/./-}"
-          namespace: default
+          namespace: networking
         spec:
           secretName: "${SECRET_PUBLIC_DOMAIN/./-}-tls"
           issuerRef:
