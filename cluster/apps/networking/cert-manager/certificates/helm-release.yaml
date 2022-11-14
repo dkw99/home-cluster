@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: cert-manager-certificates
-  namespace: networking
+  namespace: default
 spec:
   interval: 15m
   chart:
@@ -23,18 +23,18 @@ spec:
       retries: 5
   dependsOn:
     - name: cert-manager-issuers
-      namespace: networking
+      namespace: default
   values:
     resources:
       - apiVersion: cert-manager.io/v1
         kind: Certificate
         metadata:
-          name: "${SECRET_PUBLIC_DOMAIN}-wild"
-          namespace: networking
+          name: "${SECRET_PUBLIC_DOMAIN/./-}"
+          namespace: default
         spec:
-          secretName: "${SECRET_PUBLIC_DOMAIN}-tls"
+          secretName: "${SECRET_PUBLIC_DOMAIN/./-}-tls"
           issuerRef:
-            name: "letsencrypt-pruduction"
+            name: letsencrypt-production
             kind: ClusterIssuer
           commonName: "${SECRET_PUBLIC_DOMAIN}"
           dnsNames:
