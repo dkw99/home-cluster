@@ -64,12 +64,12 @@ spec:
         enabled: true
         serviceMonitor:
           enabled: true
-          namespace: default
+          namespace: networking
           namespaceSelector:
             any: true
       extraArgs:
         default-ssl-certificate: |-
-          default/${SECRET_PUBLIC_DOMAIN/./-}-tls
+          networking/${SECRET_PUBLIC_DOMAIN/./-}-tls
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
