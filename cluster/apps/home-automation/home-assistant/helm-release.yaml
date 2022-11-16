@@ -27,9 +27,11 @@ spec:
     - name: postgres
       namespace: default
   values:
+    controller:
+      type: statefulset
     image:
       repository: ghcr.io/onedr0p/home-assistant
-      tag: 2022.10.5@sha256:fa7e065501d8b1ae4c136b23b7f98c1d02e832ba3a3b5fa772c7cdee96d6476b
+      tag: 2022.11.2@sha256:4e5088a1c49c1f7fa2f9a51536156c6c009466bb17b4ebb436d0bf4123823dbd
     env:
       TZ: "${TIMEZONE}"
       POSTGRES_HOST: postgres-rw.default.svc.cluster.local
