@@ -1,0 +1,103 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: &app home-assistant
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  dependsOn:
+    - name: emqx
+      namespace: default
+    - name: postgres
+      namespace: default
+  values:
+    image:
+      repository: ghcr.io/onedr0p/home-assistant
+      tag: 2022.10.5@sha256:fa7e065501d8b1ae4c136b23b7f98c1d02e832ba3a3b5fa772c7cdee96d6476b
+    env:
+      TZ: "${TIMEZONE}"
+      POSTGRES_HOST: postgres-rw.default.svc.cluster.local
+      POSTGRES_DB: home_assistant
+    envFrom:
+      - secretRef:
+          name: *app
+    service:
+      main:
+        type: LoadBalancer
+        externalIPs: ["${HOME_ASSISTANT_SVC_IP}"]
+        externalTrafficPolicy: Local
+        ports:
+          http:
+            port: 8123
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          external-dns.home.arpa/enabled: "true"
+        hosts:
+          - host: &host "hass.${SECRET_PUBLIC_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            
+    probes:
+      liveness:
+        enabled: false
+      readiness:
+        enabled: false
+      startup:
+        enabled: false
+    podSecurityContext:
+      runAsUser: 1000
+      runAsGroup: 1000
+      fsGroup: 1000
+      fsGroupChangePolicy: "OnRootMismatch"
+      supplementalGroups:
+        - 100
+    volumeClaimTemplates:
+      - name: config
+        mountPath: /config
+        accessMode: ReadWriteOnce
+        size: 5Gi
+        storageClass: ceph-block
+        labels:
+          snapshot.home.arpa/enabled: "true"
+    persistence:
+      backups:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "nfs1.${SECRET_PRIVATE_DOMAIN}"
+            path: /volume1/k3sCluster/Apps/External/Backups/home_assistant
+        mountPath: /config/backups
+        accessMode: ReadWriteOnce
+        size: 1M     
+    podAnnotations:
+      secret.reloader.stakater.com/reload: *app
+    resources:
+      requests:
+        cpu: 10m
+        memory: 100Mi
+      limits:
+        memory: 750Mi
