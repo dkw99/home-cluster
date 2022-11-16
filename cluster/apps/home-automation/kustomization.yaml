@@ -6,3 +6,4 @@ resources:
   - esphome
   - home-assistant
   - home-assistant-code
+  - zwavejs2mqtt
