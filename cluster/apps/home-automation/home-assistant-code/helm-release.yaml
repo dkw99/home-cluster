@@ -70,7 +70,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: 
+        existingClaim: config-home-assistant-0
     affinity:
       podAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
