@@ -25,6 +25,8 @@ spec:
     - name: home-assistant
       namespace: default
   values:
+    controller:
+      type: statefulset
     image:
       repository: ghcr.io/coder/code-server
       tag: 4.7.1

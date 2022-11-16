@@ -5,3 +5,4 @@ resources:
   - emqx
   - esphome
   - home-assistant
+  - home-assistant-code
