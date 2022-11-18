@@ -3,9 +3,9 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: node-feature-discovery
-  namespace: default
+  namespace: kube-tools
 spec:
-  interval: 15m
+  interval: 10m
   chart:
     spec:
       chart: node-feature-discovery
@@ -15,21 +15,13 @@ spec:
         name: node-feature-discovery
         namespace: flux-system
   install:
-    createNamespace: true
-    remediation:
-      retries: 5
+    crds: CreateReplace
   upgrade:
-    remediation:
-      retries: 5
+    crds: CreateReplace
   values:
-    nodeFeatureRule:
-      createCRD: true
     worker:
       annotations:
         configmap.reloader.stakater.com/reload: node-feature-discovery-worker-conf
-      nodeSelector:
-        node-role.kubernetes.io/worker: "true"
-        node-role.kubernetes.io/master: "true"
       config:
         core:
           sources:
@@ -50,12 +42,6 @@ spec:
               - vendor
               - device
           custom:
-            - name: zwave
-              matchOn:
-                - usbId:
-                    class: ["02"]
-                    vendor: ["0658"]
-                    device: ["0200"]
             - name: intel-gpu
               matchOn:
                 - pciId:
@@ -63,5 +49,13 @@ spec:
                     vendor: ["8086"]
             - name: coral-tpu
               matchOn:
+                - pciId:
+                    class: ["0880"]
+                    vendor: ["1ac1"]
+                    device: ["089a"]
+            - name: zwave
+              matchOn:
                 - usbId:
-                    vendor: ["1a6e", "18d1"]
+                    class: ["02"]
+                    vendor: ["0658"]
+                    device: ["0200"]
