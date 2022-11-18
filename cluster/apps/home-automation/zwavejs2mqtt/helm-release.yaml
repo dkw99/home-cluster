@@ -69,9 +69,14 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+          - host: &host1 "zjs2m.${SECRET_PUBLIC_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
           - hosts:
               - *host
+              - *host1
     securityContext:
       privileged: true
     volumeClaimTemplates:
