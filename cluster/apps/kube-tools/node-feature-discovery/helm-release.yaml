@@ -19,6 +19,7 @@ spec:
   upgrade:
     crds: CreateReplace
   values:
+    
     worker:
       annotations:
         configmap.reloader.stakater.com/reload: node-feature-discovery-worker-conf
