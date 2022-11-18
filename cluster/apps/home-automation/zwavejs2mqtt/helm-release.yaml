@@ -72,7 +72,6 @@ spec:
         tls:
           - hosts:
               - *host
-
     securityContext:
       privileged: true
     volumeClaimTemplates:
