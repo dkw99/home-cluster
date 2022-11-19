@@ -61,7 +61,7 @@ spec:
         tls:
           - hosts:
               - *host
-            
+            secretName: "{{ .ReleaseName }}-tls"
     probes:
       liveness:
         enabled: false
