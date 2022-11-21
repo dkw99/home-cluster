@@ -21,8 +21,10 @@ spec:
     strategy:
       type: Recreate
     env:
-      email: ${PGADMIN_EMAIL}
-      password: ${PGADMIN_PASSWORD}
+      # email: ${PGADMIN_EMAIL}
+      # password: ${PGADMIN_PASSWORD}
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
     ingress:
       enabled: true
       ingressClassName: "nginx"
@@ -34,7 +36,6 @@ spec:
       tls:
         - hosts:
             - *host
-          # secretName: "pgadmin-tls"
     persistentVolume:
       enabled: true
       existingClaim: pgadmin-config-v1
