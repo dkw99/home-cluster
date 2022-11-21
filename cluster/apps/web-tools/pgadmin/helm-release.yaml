@@ -21,8 +21,6 @@ spec:
     strategy:
       type: Recreate
     env:
-      # email: ${PGADMIN_EMAIL}
-      # password: ${PGADMIN_PASSWORD}
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
     ingress:
