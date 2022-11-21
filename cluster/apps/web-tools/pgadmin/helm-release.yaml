@@ -20,9 +20,9 @@ spec:
       tag: "6.15"
     strategy:
       type: Recreate
-    envFrom:
-      - secretRef:
-          name: *app
+    env:
+      email: ${PGADMIN_EMAIL}
+      password: ${PGADMIN_PASSWORD}
     ingress:
       enabled: true
       ingressClassName: "nginx"
