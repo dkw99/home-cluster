@@ -22,6 +22,7 @@ includes:
   tools: .taskfiles/ToolsTasks.yml
   debug: .taskfiles/DebugTasks.yml
   rook: .taskfiles/RookTasks.yml
+  snapshot: .taskfiles/SnapshotTasks.yml
 
 tasks:
 
