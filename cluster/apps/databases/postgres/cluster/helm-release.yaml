@@ -54,7 +54,7 @@ spec:
             barmanObjectStore:
               wal:
                 compression: bzip2
-                maxParallel: 8
+                maxParallel: 6
               destinationPath: s3://postgresql/
               endpointURL: http://minio.default.svc.cluster.local:9000
               serverName: postgres-v1
