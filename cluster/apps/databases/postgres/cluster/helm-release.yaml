@@ -38,7 +38,8 @@ spec:
           annotations:
             kyverno.io/ignore: "true"
         spec:
-          instances: 3
+          # Temp
+          instances: 1
           imageName: ghcr.io/cloudnative-pg/postgresql:14.5
           primaryUpdateStrategy: unsupervised
           storage:
