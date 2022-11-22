@@ -123,7 +123,7 @@ spec:
                       - name: snapshots
                         nfs:
                           server: "nfs1.${SECRET_PRIVATE_DOMAIN}"
-                          path: /volume1/k3sCluster/External/Apps/Kopia
+                          path: /volume1/k3sCluster/Apps/External/Kopia
                     affinity:
                       podAffinity:
                         requiredDuringSchedulingIgnoredDuringExecution:
