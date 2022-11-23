@@ -20,7 +20,7 @@ spec:
         any:
           - resources:
               kinds: ["Ingress"]
-      exclude:
+      include:
         any:
           - resources:
               annotations:
