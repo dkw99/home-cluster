@@ -10,4 +10,3 @@ tasks:
     desc: Calicoctl tool
     cmds:
       - kubectl apply -f https://docs.projectcalico.org/manifests/calicoctl.yaml
-

@@ -65,7 +65,7 @@ spec:
       runAsGroup: 568
       fsGroup: 568
       fsGroupChangePolicy: "OnRootMismatch"
-    
+
     volumeClaimTemplates:
       - name: config
         mountPath: /config
@@ -73,7 +73,7 @@ spec:
         size: 1Gi
         storageClass: ceph-block
         labels:
-          snapshot.home.arpa/enabled: "true"    
+          snapshot.home.arpa/enabled: "true"
     persistence:
       media:
         enabled: true

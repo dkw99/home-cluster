@@ -19,3 +19,4 @@ terraform.tfstate*
 megalinter-reports
 cert-values.yml
 temp/
+tmpl/

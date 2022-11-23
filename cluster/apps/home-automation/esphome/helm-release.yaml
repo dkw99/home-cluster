@@ -39,9 +39,9 @@ spec:
       main:
         enabled: true
         annotations:
-          #external-dns.home.arpa/enabled: "true"
-          #cert-manager.home.arpa/enabled: "true"
-          #auth.home.arpa/enabled: "true"
+          # external-dns.home.arpa/enabled: "true"
+          # cert-manager.home.arpa/enabled: "true"
+          # auth.home.arpa/enabled: "true"
           cert-manager.io/cluster-issuer: "letsencrypt-production"
         hosts:
           - host: &host esphome.${SECRET_PUBLIC_DOMAIN}

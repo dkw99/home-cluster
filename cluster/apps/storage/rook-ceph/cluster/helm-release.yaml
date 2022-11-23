@@ -31,19 +31,18 @@ spec:
     ingress:
       dashboard:
         ingressClassName: "nginx"
-        # annotations:
-        #   cert-manager.io/cluster-issuer: "letsencrypt-production"
         host:
           name: &host "rook.${SECRET_PUBLIC_DOMAIN}"
           path: /
         tls:
           - hosts:
               - *host
-            # secretName: rook-ceph-mgr-tls
     configOverride: |
       [global]
+      mon_max_pg_per_osd = 300
       bdev_enable_discard = true
       bdev_async_discard = true
+
     cephClusterSpec:
       network:
         provider: host
@@ -53,7 +52,6 @@ spec:
         enabled: true
         urlPrefix: /
         ssl: false
-        # service-type: NodePort
       storage:
         useAllNodes: false
         useAllDevices: false
@@ -126,4 +124,3 @@ spec:
             csi.storage.k8s.io/node-stage-secret-name: rook-csi-cephfs-node
             csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
             csi.storage.k8s.io/fstype: ext4
-    

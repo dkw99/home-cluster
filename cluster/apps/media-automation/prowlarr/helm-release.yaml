@@ -42,7 +42,7 @@ spec:
       main:
         ports:
           http:
-            port: *port    
+            port: *port
     ingress:
       main:
         enabled: true
@@ -72,7 +72,7 @@ spec:
         size: 1Gi
         storageClass: ceph-block
         labels:
-          snapshot.home.arpa/enabled: "true" 
+          snapshot.home.arpa/enabled: "true"
     persistence:
       backup:
         enabled: true

@@ -65,3 +65,13 @@ tasks:
     desc: Configure repository from env settings
     cmds:
       - ./configure
+  kubeconfig:
+    desc: Remotely fetch kubeconfig from Kubernetes
+    cmds:
+      - rsync --verbose --progress --partial --rsync-path="sudo rsync" {{.K3S_PRIMARY_MASTER_NODE_USERNAME}}@{{.K3S_PRIMARY_MASTER_NODE_ADDR}}:/etc/rancher/k3s/k3s.yaml "${KUBECONFIG}"
+      - sed -i 's/127.0.0.1/{{.K3S_LB_ADDR}}/g' "${KUBECONFIG}"
+      - chmod go-r "${KUBECONFIG}"
+    vars:
+      K3S_PRIMARY_MASTER_NODE_USERNAME: dkwise
+      K3S_PRIMARY_MASTER_NODE_ADDR: 192.168.16.100
+      K3S_LB_ADDR: 192.168.16.100

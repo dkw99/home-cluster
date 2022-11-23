@@ -74,7 +74,15 @@ tasks:
     desc: List all the ingresses in your cluster
     cmds:
       - kubectl get ingress {{.CLI_ARGS | default "-A"}}
+  delete-failed-pods:
+    desc: Deletes failed pods
+    cmds:
+      - kubectl delete pods --field-selector status.phase=Failed -A --ignore-not-found=true
 
+  delete-jobs:
+    desc: Delete all jobs
+    cmds:
+      - kubectl delete job -A --all
   resources:
     desc: Gather common resources in your cluster, useful when asking for support
     cmds:

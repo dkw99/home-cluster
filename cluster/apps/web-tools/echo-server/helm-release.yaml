@@ -65,9 +65,9 @@ spec:
           - hosts:
               - *host
             # secretName: "echo-server-tls"
-    # resources:
-    #   requests:
-    #     cpu: 50m
-    #     memory: 64Mi
-    #   limits:
-    #     memory: 96Mi
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        memory: 96Mi
