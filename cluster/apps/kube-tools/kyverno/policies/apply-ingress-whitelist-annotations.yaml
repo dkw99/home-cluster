@@ -20,7 +20,6 @@ spec:
         any:
           - resources:
               kinds: ["Ingress"]
-          - resources:
               annotations:
                 external-dns.home.arpa/enabled: "true"
       # exclude:
