@@ -63,7 +63,7 @@ spec:
         tls:
           - hosts:
               - *host
-            secretName: "hass-tls"
+            # secretName: "hass-tls"
     probes:
       liveness:
         enabled: false
