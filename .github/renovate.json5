@@ -23,7 +23,7 @@
     ],
     "onboarding": false,
     "requireConfig": "optional",
-    "gitAuthor": "dkw99@users.noreply.github.com>",
+    "gitAuthor": "dkw99 <dkw99@users.noreply.github.com>",
     "dependencyDashboardTitle": "Renovate Dashboard 🤖",
     "suppressNotifications": [
         "prIgnoreNotification"
