@@ -5,7 +5,7 @@ metadata:
   name: postgres-scheduled-backup
   namespace: &namespace default
 spec:
-  interval: 15m
+  interval: 20m
   chart:
     spec:
       chart: raw
