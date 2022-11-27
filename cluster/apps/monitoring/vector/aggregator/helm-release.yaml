@@ -173,7 +173,7 @@ spec:
             patch:
               - op: add
                 path: /spec/externalIPs
-                value: ["${SVC_SYSLOG_ADDR}"]
+                value: ["${SYSLOG_SVC_IP}"]
               - op: replace
                 path: /spec/externalTrafficPolicy
                 value: Local
