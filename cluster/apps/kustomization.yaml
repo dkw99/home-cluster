@@ -9,6 +9,7 @@ resources:
   - kube-system
   - kube-tools
   - media-automation
+  - monitoring
   - networking
   - storage
   - system-upgrade

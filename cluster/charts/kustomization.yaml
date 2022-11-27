@@ -12,11 +12,13 @@ resources:
   - hajimari-charts.yaml
   - ingress-nginx-charts.yaml
   - jetstack-charts.yaml
-  - kubereboot-charts.yaml
   - k8s-gateway-charts.yaml
+  - kubereboot-charts.yaml
   - kyverno-charts.yaml
   - node-feature-discovery-charts.yaml
   - metrics-server-charts.yaml
+  - prometheus-community-charts.yaml
   - rook-ceph-charts.yaml
   - runix-charts.yaml
   - stakater-charts.yaml
+  - vector-charts.yaml
