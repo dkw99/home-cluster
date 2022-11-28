@@ -210,12 +210,12 @@ spec:
               resources:
                 requests:
                   storage: 50Gi
-        resources:
-          requests:
-            cpu: 10m
-            # memory: 2000Mi
-          limits:
-            memory: 6000Mi
+        # resources:
+        #   requests:
+        #     cpu: 10m
+        #     # memory: 2000Mi
+        #   limits:
+        #     memory: 6000Mi
         additionalScrapeConfigs:
           - job_name: haproxy
             scrape_interval: 1m
