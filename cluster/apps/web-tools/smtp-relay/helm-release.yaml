@@ -39,7 +39,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        externalIPs: ["${SVC_SMTP_RELAY_ADDR}"]
+        externalIPs: ["${SMTP_RELAY_SVC_IP}"]
         externalTrafficPolicy: Local
         ports:
           http:
