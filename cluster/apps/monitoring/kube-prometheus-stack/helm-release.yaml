@@ -149,7 +149,7 @@ spec:
       enabled: true
       endpoints:
         - 192.168.16.100
-        
+
     kubeEtcd:
       enabled: true
       endpoints:
@@ -215,7 +215,7 @@ spec:
             cpu: 10m
             # memory: 2000Mi
           limits:
-            memory: 3000Mi
+            memory: 6000Mi
         additionalScrapeConfigs:
           - job_name: haproxy
             scrape_interval: 1m
@@ -245,5 +245,3 @@ spec:
             static_configs:
               - targets:
                   - "opnsense.${SECRET_PRIVATE_DOMAIN}:9100"
-                  
-          
