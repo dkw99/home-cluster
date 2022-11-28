@@ -28,7 +28,7 @@ spec:
     image:
       repository: ghcr.io/foxcpp/maddy
       tag: 0.6.2
-      DEBUG: "true"
+      DEBUG: "yes"
       SMTP_DOMAIN: "${SECRET_EMAIL_DOMAIN}"
       SMTP_SERVER: "smtp.gmail.com"
       SMTP_USERNAME: "${CLOUDFARE_SECRET_EMAIL}"
