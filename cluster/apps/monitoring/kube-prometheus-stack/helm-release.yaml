@@ -217,20 +217,20 @@ spec:
         #   limits:
         #     memory: 6000Mi
         additionalScrapeConfigs:
-          - job_name: haproxy
-            scrape_interval: 1m
-            scrape_timeout: 10s
-            honor_timestamps: true
-            static_configs:
-              - targets:
-                  - "opnsense.${SECRET_PRIVATE_DOMAIN}:8404"
-          - job_name: coredns
-            scrape_interval: 1m
-            scrape_timeout: 10s
-            honor_timestamps: true
-            static_configs:
-              - targets:
-                  - "opnsense.${SECRET_PRIVATE_DOMAIN}:9153"
+          # - job_name: haproxy
+          #   scrape_interval: 1m
+          #   scrape_timeout: 10s
+          #   honor_timestamps: true
+          #   static_configs:
+          #     - targets:
+          #         - "opnsense.${SECRET_PRIVATE_DOMAIN}:8404"
+          # - job_name: coredns
+          #   scrape_interval: 1m
+          #   scrape_timeout: 10s
+          #   honor_timestamps: true
+          #   static_configs:
+          #     - targets:
+          #         - "opnsense.${SECRET_PRIVATE_DOMAIN}:9153"
           - job_name: frr-exporter
             scrape_interval: 1m
             scrape_timeout: 10s
