@@ -23,12 +23,13 @@ spec:
       retries: 5
   values:
     controller:
-      replicas: 2
+      replicas: 1
       strategy: RollingUpdate
     image:
       repository: ghcr.io/foxcpp/maddy
       tag: 0.6.2
-      DEBUG: "yes"
+    env:
+      DEBUG: "true"
       SMTP_DOMAIN: "${SECRET_EMAIL_DOMAIN}"
       SMTP_SERVER: "smtp.gmail.com"
       SMTP_USERNAME: "${CLOUDFARE_SECRET_EMAIL}"
