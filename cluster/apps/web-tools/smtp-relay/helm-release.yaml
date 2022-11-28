@@ -32,7 +32,7 @@ spec:
       DEBUG: "true"
       SMTP_DOMAIN: "${SECRET_EMAIL_DOMAIN}"
       SMTP_SERVER: "smtp.gmail.com"
-      SMTP_USERNAME: "${CLOUDFARE_SECRET_EMAIL}"
+      SMTP_USERNAME: "${CLOUDFLARE_SECRET_EMAIL}"
       SMTP_PORT: "465"
     envFrom:
       - secretRef:
