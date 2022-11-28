@@ -9,5 +9,10 @@
         "signageos.signageos-vscode-sops",
         "usernamehw.errorlens",
         "fcrespo82.markdown-table-formatter"
-    ]
+    ],
+
+        "files.associations": {
+            "**/cluster/**/*.sops.toml": "plaintext"
+        }
+
 }
