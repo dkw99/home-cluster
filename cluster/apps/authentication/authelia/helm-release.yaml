@@ -12,7 +12,7 @@ spec:
       version: 1.1.3
       sourceRef:
         kind: HelmRepository
-        name: bjw-s
+        name: bjw-s-charts
         namespace: flux-system
   install:
     createNamespace: true
@@ -47,22 +47,21 @@ spec:
           metrics:
             enabled: true
             port: 8080
-        monitor:
-          enabled: true
-          endpoints:
-            - port: metrics
-              scheme: http
-              path: /metrics
-              interval: 1m
-              scrapeTimeout: 10s
+    serviceMonitor:
+      main:
+        enabled: true
+        endpoints:
+          - port: metrics
+            scheme: http
+            path: /metrics
+            interval: 1m
+            scrapeTimeout: 10s
     ingress:
       main:
         enabled: true
         ingressClassName: "nginx"
         annotations:
           external-dns.home.arpa/enabled: "true"
-          auth1.home.arpa/enabled: "true"
-          cert-manager.home.arpa/enabled: "true"
           nginx.ingress.kubernetes.io/configuration-snippet: |
             add_header Cache-Control "no-store";
             add_header Pragma "no-cache";
@@ -76,12 +75,11 @@ spec:
         tls:
           - hosts:
               - *host
-            secretName: "auth-tls"
-    # podSecurityContext:
-    #   runAsUser: 1000
-    #   runAsGroup: 1000
-    #   fsGroup: 1000
-    #   fsGroupChangePolicy: "OnRootMismatch"
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
     persistence:
       config:
         enabled: true
