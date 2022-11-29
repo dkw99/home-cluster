@@ -30,7 +30,6 @@ access_control:
     # - domain: ["navidrome.${SECRET_PUBLIC_DOMAIN}"]
     #   resources: ["^/metrics.*$"]
     #   policy: deny
-
 identity_providers:
   oidc:
     cors:
