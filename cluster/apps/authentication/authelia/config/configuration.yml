@@ -20,7 +20,7 @@ access_control:
     - domain: ["grafana.${SECRET_PUBLIC_DOMAIN}"]
       policy: bypass
       networks: ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
-    - domain: ["echo-server.${SECRET_PUBLIC_DOMAIN}"]
+    - domain: ["*${SECRET_PUBLIC_DOMAIN}"]
       policy: bypass
       networks: ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
 
