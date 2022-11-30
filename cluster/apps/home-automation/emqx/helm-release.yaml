@@ -20,7 +20,7 @@ spec:
       retries: 5
   upgrade:
     remediation:
-      retries: 5
+      retries: 6
   dependsOn:
     - name: rook-ceph-cluster
       namespace: rook-ceph
