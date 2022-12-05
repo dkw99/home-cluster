@@ -9,4 +9,5 @@ resources:
   - ./loki
   - ./speedtest-exporter
   - ./thanos
+  - ./unifi-poller
   - ./vector
