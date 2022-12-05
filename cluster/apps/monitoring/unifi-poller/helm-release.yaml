@@ -31,6 +31,15 @@ spec:
     envFrom:
       - secretRef:
           name: unifi-poller-credentials
+    service:
+      main:
+        ports:
+          http:
+            enabled: false
+          metrics:
+            enabled: true
+            protocol: TCP
+            port: 9130
     metrics:
       enabled: true
       prometheusRule:
