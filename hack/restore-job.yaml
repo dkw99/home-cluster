@@ -38,5 +38,5 @@ spec:
             claimName: ${CLAIM}
         - name: snapshots
           nfs:
-            server: expanse
-            path: /eros/Apps/Kopia
+            server: NFS1.${SECRET_PRIVATE_DOMAIN}
+            path: /volume1/k3sCluster/Apps
