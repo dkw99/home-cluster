@@ -65,20 +65,20 @@ spec:
           #             {{- end }}
           #           {{- end }}
           #         {{- end }}
-        route:
-          group_by: ["alertname", "job"]
-          group_wait: 30s
-          group_interval: 5m
-          repeat_interval: 6h
-          receiver: "pushover"
-          routes:
-            - receiver: "null"
-              matchers:
-                - alertname =~ "InfoInhibitor|Watchdog"
-            - receiver: "pushover"
-              matchers:
-                - severity = "critical"
-              continue: true
+        # route:
+        #   group_by: ["alertname", "job"]
+        #   group_wait: 30s
+        #   group_interval: 5m
+        #   repeat_interval: 6h
+        #   receiver: "pushover"
+        #   routes:
+        #     - receiver: "null"
+        #       matchers:
+        #         - alertname =~ "InfoInhibitor|Watchdog"
+        #     - receiver: "pushover"
+        #       matchers:
+        #         - severity = "critical"
+        #       continue: true
         inhibit_rules:
           - source_matchers:
               - severity = "critical"
