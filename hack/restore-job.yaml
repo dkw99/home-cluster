@@ -39,4 +39,4 @@ spec:
         - name: snapshots
           nfs:
             server: NFS1.${SECRET_PRIVATE_DOMAIN}
-            path: /volume1/k3sCluster/Apps
+            path: /volume1/k3sCluster/Apps/External/Kopia
