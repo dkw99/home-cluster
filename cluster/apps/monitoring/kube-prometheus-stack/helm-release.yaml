@@ -95,7 +95,7 @@ spec:
           - hosts:
               - *host
       alertmanagerSpec:
-        replicas: 3
+        replicas: 2
         podAntiAffinity: hard
         storage:
           volumeClaimTemplate:
@@ -186,7 +186,7 @@ spec:
           - hosts:
               - *host
       prometheusSpec:
-        replicas: 3
+        replicas: 2
         replicaExternalLabelName: __replica__
         externalLabels:
           cluster: home-cluster
