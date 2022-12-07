@@ -5,5 +5,4 @@ while read -r line; do declare -x "$line"; done < <(yq eval '.data' ./cluster/co
 
 # envsubst < ./cluster/apps/home-automation/home-assistant/helm-release.yaml
 
-envsubst < ./hack/restore-job.yaml  > kube
 # envsubst < <(cat "${1}") | kubectl apply -f -
