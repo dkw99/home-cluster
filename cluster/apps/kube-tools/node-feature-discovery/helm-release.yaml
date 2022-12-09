@@ -51,8 +51,7 @@ spec:
               matchOn:
                 - pciId:
                     class: ["0300"]
-                    vendor: ["1430"]
-                    device: ["10de"]
+                    vendor: ["10de"]
             - name: coral-tpu
               matchOn:
                 - pciId:
