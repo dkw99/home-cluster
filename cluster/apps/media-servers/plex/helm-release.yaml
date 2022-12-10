@@ -64,7 +64,7 @@ spec:
       fsGroupChangePolicy: "OnRootMismatch"
       supplementalGroups:
         - 44
-        - 109
+        # - 109
         - 100
     volumeClaimTemplates:
       - name: config
