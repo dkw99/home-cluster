@@ -83,6 +83,12 @@ tasks:
     desc: Delete all jobs
     cmds:
       - kubectl delete job -A --all
+  flux-restart:
+    desc: Restartt flux
+    cmds:
+      - kubectl get deployments  -n flux-system | grep '1/1' | awk '{print $1}' | xargs -l bash -c 'kubectl scale --replicas=0 deployment/$0 -n flux-system'
+      - bash -c "echo ' Waiting 10s before restart'; sleep 10"
+      - kubectl get deployments  -n flux-system | grep '0/0' | awk '{print $1}' | xargs -l bash -c 'kubectl scale --replicas=1 deployment/$0 -n flux-system'
   resources:
     desc: Gather common resources in your cluster, useful when asking for support
     cmds:
