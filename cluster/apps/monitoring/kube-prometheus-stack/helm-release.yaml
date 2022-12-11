@@ -186,7 +186,7 @@ spec:
           - hosts:
               - *host
       prometheusSpec:
-        replicas: 2
+        replicas: 1
         replicaExternalLabelName: __replica__
         externalLabels:
           cluster: home-cluster
