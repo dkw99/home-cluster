@@ -20,7 +20,7 @@ spec:
       retries: 5
   upgrade:
     remediation:
-      retries: 6
+      retries: 5
   dependsOn:
     - name: minio
       namespace: default
@@ -38,7 +38,7 @@ spec:
           annotations:
             kyverno.io/ignore: "true"
         spec:
-          instances: 3
+          instances: 1
           imageName: ghcr.io/cloudnative-pg/postgresql:14.5
           primaryUpdateStrategy: unsupervised
           storage:
