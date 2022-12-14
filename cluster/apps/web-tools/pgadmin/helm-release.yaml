@@ -21,8 +21,8 @@ spec:
     strategy:
       type: Recreate
     env:
-      email: ${PGADMIN_EMAIL}
-      password: ${PGADMIN_PASSWORD}
+      email: ${SECRET_PGADMIN_EMAIL}
+      password: ${SECRET_PGADMIN_PASSWORD}
     ingress:
       enabled: true
       ingressClassName: "nginx"
