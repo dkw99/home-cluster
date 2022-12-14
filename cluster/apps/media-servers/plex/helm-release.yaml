@@ -41,7 +41,7 @@ spec:
         externalTrafficPolicy: Local
         ports:
           http:
-            port: 32400
+            port: 32500
     ingress:
       main:
         enabled: true
