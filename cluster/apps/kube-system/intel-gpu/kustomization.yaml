@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-node-feature-discovery
-  path: ./kubernetes/apps/kube-system/intel-gpu/plugin
+  path: ./cluster/apps/kube-system/intel-gpu/plugin
   prune: true
   sourceRef:
     kind: GitRepository
@@ -33,7 +33,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-intel-gpu-plugin
-  path: ./kubernetes/apps/kube-system/intel-gpu/exporter
+  path: ./cluster/apps/kube-system/intel-gpu/exporter
   prune: true
   sourceRef:
     kind: GitRepository
