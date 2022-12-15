@@ -1,0 +1,22 @@
+kind: Secret
+SECRET_PRIVATE_DOMAIN: home.lan
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1lmp488pwp74xx3ljg0gumh2nlz2ml3s4yxnner5094fr59pvdulqtgywe2
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAzQlJCcjZQcEJkWFQ3Tm1T
+            UHo2T2JrL0RUY0c0K0lKM3RKd0R6WUJZLzBRCkd1NHpYZkVmQWtwSlZBTDZqZ1I3
+            QytxSUltZEQ3eURmTVR1ZFNpQ0ROUFUKLS0tIFdMbUQ3N0xXMG96RmM2Ry9URWRs
+            NW9jdjJPaTloRlFnaHpLTHVJcnBFOEEKfO2LcGuiP05c+5OSzVaTImduAfcec/UN
+            e2vHHenikFoSpQcBORBC1aqAgYXjcGPaJ5NNEGXWI0viakFxcypctg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2022-12-14T11:44:40Z"
+    mac: ENC[AES256_GCM,data:ZjATAzPqIHWtHV2y8wQcQj8wY+VFPQv1KrbYH4V1X2Nt9ET8vi2GCZwvXyY+hrlEAyUud5JsJhI5C+zsppX56sQgxEey/I56A2pm6H+eJYJv+LlVfA7Q7fctM7ajPTdJlosYx3kZkuNMokHIY8hz82YCIIicI2LWS85QhUAeyG4=,iv:yVCtJT6zjIX39lnthTWERNWj2JNfXfiAw461B87UFkM=,tag:u2+COZMwl16XEkdROzKk0Q==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3

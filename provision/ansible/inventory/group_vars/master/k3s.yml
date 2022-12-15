@@ -24,24 +24,31 @@ k3s_server:
     # Disable metrics-server - installed with Flux
     - metrics-server
     # Disable local-storage - replaced with rook-ceph
-    - local-storage
   disable-network-policy: true
   disable-cloud-controller: true
   write-kubeconfig-mode: "644"
+    # Required to monitor etcd with kube-prometheus-stack
+  etcd-expose-metrics: true
   # Network CIDR to use for pod IPs
   cluster-cidr: "10.42.0.0/16"
   # Network CIDR to use for service IPs
   service-cidr: "10.43.0.0/16"
   kubelet-arg:
     # Allow k8s services to contain TCP and UDP on the same port
-    - "feature-gates=MixedProtocolLBService=true"
+    #  - "feature-gates=MixedProtocolLBService=true"
+    # https://github.com/k3s-io/k3s/issues/1264
+    - "node-status-update-frequency=4s"
     # Required resolve ndots:5 from DNS issues
     - "resolv-conf=/etc/k3s-resolv.conf"
   kube-controller-manager-arg:
     # Allow k8s services to contain TCP and UDP on the same port
-    - "feature-gates=MixedProtocolLBService=true"
+    # - "feature-gates=MixedProtocolLBService=true"
     # Required to monitor kube-controller-manager with kube-prometheus-stack
     - "bind-address=0.0.0.0"
+    # https://github.com/k3s-io/k3s/issues/1264
+    - "node-monitor-period=4s"
+    - "node-monitor-grace-period=16s"
+    - "pod-eviction-timeout=20s"
   kube-proxy-arg:
     # Allow k8s services to contain TCP and UDP on the same port
     - "feature-gates=MixedProtocolLBService=true"
@@ -52,10 +59,12 @@ k3s_server:
     - "feature-gates=MixedProtocolLBService=true"
     # Required to monitor kube-scheduler with kube-prometheus-stack
     - "bind-address=0.0.0.0"
-  # Required to monitor etcd with kube-prometheus-stack
-  etcd-expose-metrics: true
+
   kube-apiserver-arg:
     # Allow k8s services to contain TCP and UDP on the same port
-    - "feature-gates=MixedProtocolLBService=true"
+    # - "feature-gates=MixedProtocolLBService=true"
     # Required for HAProxy health-checks
     - "anonymous-auth=true"
+    # https://github.com/k3s-io/k3s/issues/1264
+    - "default-not-ready-toleration-seconds=20"
+    - "default-unreachable-toleration-seconds=20"

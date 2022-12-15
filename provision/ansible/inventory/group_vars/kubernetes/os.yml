@@ -23,8 +23,10 @@ packages:
   - nfs-utils
   - nvme-cli
   - open-vm-tools
-  - socat
+  - python3-kubernetes
   - python3-libselinux
+  - python3-pyyaml
+  - socat
 
 
   # TODO(ansible): Might be required for newer Intel CPU generations
