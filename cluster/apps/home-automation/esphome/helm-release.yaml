@@ -62,11 +62,6 @@ spec:
         storageClass: ceph-block
         labels:
           snapshot.home.arpa/enabled: "true"
-    persistence:
-      config1:
-        enabled: true
-        existingClaim:  esphome-config
-        mountPath: /config/oldconfig
     resources:
       requests:
         cpu: 100m
