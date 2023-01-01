@@ -54,8 +54,8 @@ spec:
         ingressClassName: "nginx"
         annotations:
           external-dns.home.arpa/enabled: "true"
-          nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-          # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
         hosts:
           - host: &host "{{ .Release.Name }}.${SECRET_PUBLIC_DOMAIN}"
             paths:
@@ -63,7 +63,7 @@ spec:
                 pathType: Prefix
         tls:
           - hosts:
-              - *host
+              - plex-tls
     podSecurityContext:
     #   runAsUser: 0
     #   runAsGroup: 568
