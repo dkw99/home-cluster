@@ -6,6 +6,7 @@ resources:
   - ./helm-release.yaml
   - ./cluster
   - ./scheduled-backup
+  - ./dashboard
 configMapGenerator:
   - name: cloudnative-pg-dashboard
     files:
