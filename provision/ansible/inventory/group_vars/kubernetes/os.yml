@@ -26,6 +26,7 @@ packages:
   - python3-kubernetes
   - python3-libselinux
   - python3-pyyaml
+  - qemu-guest-agent
   - socat
 
 
