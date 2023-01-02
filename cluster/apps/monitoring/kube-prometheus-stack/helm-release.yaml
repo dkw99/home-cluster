@@ -252,8 +252,6 @@ spec:
             static_configs:
               - targets:
                   - "pve1.${SECRET_PRIVATE_DOMAIN}:9100"
-                  - "pve2.${SECRET_PRIVATE_DOMAIN}:9100"
-                  - "pve3.${SECRET_PRIVATE_DOMAIN}:9100"
             metrics_path: /pve
             params:
               module: [default]
