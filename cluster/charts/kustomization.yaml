@@ -16,6 +16,7 @@ resources:
   - kubereboot-charts.yaml
   - kubernetes-sigs-descheduler.yaml
   - kyverno-charts.yaml
+  - intel.yaml
   - node-feature-discovery-charts.yaml
   - metrics-server-charts.yaml
   - prometheus-community-charts.yaml
