@@ -33,7 +33,7 @@ spec:
               pathType: Prefix
       tls:
         - hosts:
-            - *host
+            -  pgadmin.${SECRET_PUBLIC_DOMAIN}
     persistentVolume:
       enabled: true
       existingClaim: pgadmin-config-v1
