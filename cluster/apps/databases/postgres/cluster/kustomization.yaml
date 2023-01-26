@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - secret.sops.yaml
   # - helm-release.yaml
-  - cluster.yaml
+  # - cluster.yaml
