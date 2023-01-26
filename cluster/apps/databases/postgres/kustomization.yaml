@@ -4,8 +4,8 @@ kind: Kustomization
 namespace: default
 resources:
   - ./helm-release.yaml
-  - ./cluster
-  - ./scheduled-backup
+  # - ./cluster
+  # - ./scheduled-backup
   - ./dashboard
 configMapGenerator:
   - name: cloudnative-pg-dashboard
