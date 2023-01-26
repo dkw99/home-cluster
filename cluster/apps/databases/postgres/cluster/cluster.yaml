@@ -15,10 +15,10 @@ spec:
     size: 20Gi
     storageClass: local-path
   superuserSecret:
-    name: postgres-superuser
-  bootstrap:
-    recovery:
-      source: &active-cluster postgres-v1
+    name: cloudnative-pg-secret
+  # bootstrap:
+  #   recovery:
+  #     source: &active-cluster postgres-v2
   postgresql:
     parameters:
       max_connections: "300"
@@ -36,11 +36,11 @@ spec:
       serverName: postgres-v3
       s3Credentials:
         accessKeyId:
-          name: postgres-minio
-          key: MINIO_ACCESS_KEY
+          name: cloudnative-pg-secret
+          key: aws-access-key-id
         secretAccessKey:
-          name: postgres-minio
-          key: MINIO_SECRET_KEY
+          name: cloudnative-pg-secret
+          key: aws-secret-access-key
   # externalClusters is needed when recovering from an existing cnpg cluster
   externalClusters:
     - name: *active-cluster
@@ -52,8 +52,8 @@ spec:
         endpointURL: http://minio.default.svc.cluster.local:9000
         s3Credentials:
           accessKeyId:
-            name: postgres-minio
-            key: MINIO_ACCESS_KEY
+            name: cloudnative-pg-secret
+            key: aws-access-key-id
           secretAccessKey:
-            name: postgres-minio
-            key: MINIO_SECRET_KEY
+            name: cloudnative-pg-secret
+            key: aws-secret-access-key
