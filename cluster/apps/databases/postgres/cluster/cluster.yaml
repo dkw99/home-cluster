@@ -8,7 +8,7 @@ metadata:
   annotations:
     kyverno.io/ignore: "true"
 spec:
-  instances: 3
+  instances: 2
   imageName: ghcr.io/cloudnative-pg/postgresql:14.5
   primaryUpdateStrategy: unsupervised
   storage:
@@ -33,7 +33,7 @@ spec:
         maxParallel: 8
       destinationPath: s3://postgresql/
       endpointURL: http://minio.default.svc.cluster.local:9000
-      serverName: postgres-v2
+      serverName: postgres-v1
       s3Credentials:
         accessKeyId:
           name: cloudnative-pg-secret
