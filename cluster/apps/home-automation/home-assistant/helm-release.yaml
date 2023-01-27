@@ -24,8 +24,8 @@ spec:
   dependsOn:
     - name: emqx
       namespace: default
-    # - name: postgres
-    #   namespace: default
+    - name: postgres
+      namespace: default
   values:
     controller:
       type: statefulset
