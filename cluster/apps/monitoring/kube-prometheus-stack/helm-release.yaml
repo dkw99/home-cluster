@@ -261,5 +261,4 @@ spec:
             bearer_token: '${PROM_HASS_TOKEN}'
             scheme: http
             static_configs:
-              - targets:
-                - home-assistant.default.svc:8123
+              - targets: ["home-assistant.default.svc:8123"]
