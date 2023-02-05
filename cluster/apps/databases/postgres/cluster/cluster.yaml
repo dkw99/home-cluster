@@ -19,6 +19,7 @@ spec:
   # bootstrap:
   #   recovery:
   #     source: &active-cluster postgres-v1
+  # 
   postgresql:
     parameters:
       max_connections: "300"
