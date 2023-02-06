@@ -42,7 +42,7 @@ spec:
       mon_max_pg_per_osd = 350
       bdev_enable_discard = true
       bdev_async_discard = true
-
+      rgw_dns_name = rook-ceph-rgw-ceph-objectstore.rook-ceph.svc.cluster.local
     cephClusterSpec:
       network:
         provider: host
