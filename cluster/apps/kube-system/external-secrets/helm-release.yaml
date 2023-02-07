@@ -30,7 +30,7 @@ spec:
     env:
       VAULT_ADDR: http://external-vault.default.svc.cluster.local:8200
       METRICS_PORT: 3001
-      POLLER_INTERVAL_MILLISECONDS: 10000  
+      POLLER_INTERVAL_MILLISECONDS: 10000
       WATCH_TIMEOUT: 60000
       WATCHED_NAMESPACES: ""  # Comma separated list of namespaces, empty or unset means ALL namespaces.
       LOG_LEVEL: info
