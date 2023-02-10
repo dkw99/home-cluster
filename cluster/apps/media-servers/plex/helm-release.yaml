@@ -1,8 +1,9 @@
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/helmrelease_v2beta1.json
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: &app plex
+  name: plex
   namespace: default
 spec:
   interval: 15m
@@ -12,38 +13,31 @@ spec:
       version: 1.3.1
       sourceRef:
         kind: HelmRepository
-        name: bjw-s-charts
+        name: bjw-s
         namespace: flux-system
+  maxHistory: 3
   install:
     createNamespace: true
     remediation:
-      retries: 5
+      retries: 3
   upgrade:
+    cleanupOnFail: true
     remediation:
-      retries: 4
-  dependsOn:
-    - name: node-feature-discovery
-      namespace: kube-system
-    - name: rook-ceph-cluster
-      namespace: rook-ceph
+      retries: 3
+  uninstall:
+    keepHistory: false
   values:
     controller:
       type: statefulset
     image:
-      repository: plexinc/pms-docker
-      tag: 1.30.0.6486-629d58034
-    # image:
-    #   repository: ghcr.io/onedr0p/plex
-    #   tag: 1.30.0.6486-629d58034@sha256:b3e3a2a305443f243643553161cff639f3dcc74349595884ac9c77cf6bb24068
+      repository: ghcr.io/onedr0p/plex
+      tag: 1.30.2.6563-3d4dc0cce@sha256:d0d3e5e75f5ed86843d123cd84bb1f54a0593ec26c908410548862607af880bf
     env:
-      TZ: "${TIMEZONE}"
-    envFrom:
-      - secretRef:
-          name: *app
+      TZ: America/New_York
     service:
       main:
         type: LoadBalancer
-        externalIPs: ["${PLEX_SVC_IP}"]
+        externalIPs: ["${SVC_PLEX_ADDR}"]
         externalTrafficPolicy: Local
         ports:
           http:
@@ -51,11 +45,11 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "nginx"
+        ingressClassName: nginx
         annotations:
-          external-dns.home.arpa/enabled: "true"
+          external-dns.alpha.kubernetes.io/target: ipv4.${SECRET_PUBLIC_DOMAIN}
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          hajimari.io/icon: mdi:plex
         hosts:
           - host: &host "{{ .Release.Name }}.${SECRET_PUBLIC_DOMAIN}"
             paths:
@@ -64,52 +58,29 @@ spec:
         tls:
           - hosts:
               - *host
-            secretName: plex-tls
     podSecurityContext:
-    #   runAsUser: 0
-    #   runAsGroup: 568
-    #   fsGroup: 568
-    #   fsGroupChangePolicy: "OnRootMismatch"
-      supplementalGroups:
-        - 44
-        - 109
-        - 100
+      runAsUser: 1028
+      runAsGroup: 65536
+      fsGroup: 65536
+      fsGroupChangePolicy: "OnRootMismatch"
+      supplementalGroups: [44, 109, 10000]
     volumeClaimTemplates:
       - name: config
         mountPath: /config
         accessMode: ReadWriteOnce
         size: 100Gi
         storageClass: ceph-block
-        labels:
-          snapshot.home.arpa/enabled: "true"
     persistence:
       media:
         enabled: true
         type: nfs
-        server: "nfs1.${SECRET_PRIVATE_DOMAIN}"
+        server: nas.home.lan
         path: /volume1/Media
         mountPath: /media
         readOnly: true
       transcode:
         enabled: true
         type: emptyDir
-    # nodeSelector:
-      # node-role.kubernetes.io/worker: "true"
-      # intel.feature.node.kubernetes.io/gpu: "true"
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: feature.node.kubernetes.io/custom-intel-gpu
-                  operator: In
-                  values:
-                    - "true"
-    # resources:
-    #   requests:
-    #     gpu.intel.com/i915: 1
-    #     cpu: 1000m
-    #     memory: 1500Mi
-    #   limits:
-    #     gpu.intel.com/i915: 1
-    #     memory: 4900Mi
+    nodeSelector:
+      node-role.kubernetes.io/worker: "true"
+      intel.feature.node.kubernetes.io/gpu: "true"
