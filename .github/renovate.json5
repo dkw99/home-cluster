@@ -99,7 +99,7 @@
             ],
             "versioning": "loose",
             "matchPackageNames": [
-                "ghcr.io/onedr0p/plex",
+                "ghcr.io/dkw99/plex",
                 "ghcr.io/onedr0p/qbittorrent",
                 "ghcr.io/immich-app/immich"
             ]
