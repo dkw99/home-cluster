@@ -30,8 +30,8 @@ spec:
     controller:
       type: statefulset
     image:
-      repository: ghcr.io/onedr0p/plex
-      tag: 1.31.0.6654-02189b09f@sha256:e008f8822f31a5648ea5b28289ca82388e9111db4418a2662d7fb52ab9e61712
+      repository: ghcr.io/dkw99/plex
+      tag: 1.31.0.6654-02189b09e@sha256:3f0b32bc1cb8fee11a24fa3c1111ecfc2e3d4798608d400bd024b9ae0b767530
     env:
       TZ: ${TIMEZONE}
     envFrom:
