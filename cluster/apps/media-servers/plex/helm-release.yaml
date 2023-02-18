@@ -63,8 +63,8 @@ spec:
               - *host
     podSecurityContext:
       runAsUser: 1041
-      runAsGroup: 100
-      fsGroup: 100
+      runAsGroup: 65541
+      fsGroup: 65541
       fsGroupChangePolicy: "OnRootMismatch"
       supplementalGroups: [44, 109, 10000]
     volumeClaimTemplates:
