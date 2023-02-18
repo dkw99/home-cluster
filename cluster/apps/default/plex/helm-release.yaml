@@ -73,17 +73,17 @@ spec:
         accessMode: ReadWriteOnce
         size: 100Gi
         storageClass: ceph-block
-    persistence:
-      media:
-        enabled: true
-        type: nfs
-        server: nas.home.lan
-        path: /volume1/Media
-        mountPath: /media
-        readOnly: true
-      transcode:
-        enabled: true
-        type: emptyDir
+    # persistence:
+    #   media:
+    #     enabled: true
+    #     type: nfs
+    #     server: nas.home.lan
+    #     path: /volume1/Media
+    #     mountPath: /media
+    #     readOnly: true
+    #   transcode:
+    #     enabled: true
+    #     type: emptyDir
     nodeSelector:
       # node-role.kubernetes.io/worker: "true"
       intel.feature.node.kubernetes.io/gpu: "true"
