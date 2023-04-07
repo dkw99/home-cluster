@@ -6,4 +6,4 @@ resources:
   - helm-release.yaml
 patchesStrategicMerge:
   - ./patches/postgres.yaml
-  - ./patches/addons.yaml
+  # - ./patches/addons.yaml
