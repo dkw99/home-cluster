@@ -54,7 +54,7 @@ spec:
         annotations:
           # external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_PUBLIC_DOMAIN}"
           external-dns.home.arpa/enabled: "true"
-          # cert-manager.io/cluster-issuer: "letsencrypt-production"
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
         hosts:
           - host: &host "hass.${SECRET_PUBLIC_DOMAIN}"
             paths:
