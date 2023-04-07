@@ -42,11 +42,11 @@ spec:
       - --annotation-filter=external-dns.home.arpa/enabled in (true)
     policy: sync
     sources:
-      - ingress
+      - ["ingress"]
     txtPrefix: "k8s."
     txtOwnerId: "default"
     domainFilters:
-      - "${SECRET_PUBLIC_DOMAIN}"
+      - ["${SECRET_PUBLIC_DOMAIN}"]
     resources:
       requests:
         memory: 100Mi
