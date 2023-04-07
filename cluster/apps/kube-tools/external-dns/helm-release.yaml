@@ -41,12 +41,10 @@ spec:
       - --cloudflare-proxied
       - --annotation-filter=external-dns.home.arpa/enabled in (true)
     policy: sync
-    sources:
-      - ["ingress"]
+    sources: ["ingress"]
     txtPrefix: "k8s."
     txtOwnerId: "default"
-    domainFilters:
-      - ["${SECRET_PUBLIC_DOMAIN}"]
+    domainFilters: ["${SECRET_PUBLIC_DOMAIN}"]
     resources:
       requests:
         memory: 100Mi
