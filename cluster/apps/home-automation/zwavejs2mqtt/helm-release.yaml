@@ -84,11 +84,11 @@ spec:
         accessMode: ReadWriteOnce
         size: 2Gi
         storageClass: ceph-block
-    # persistence:
-    #   usb:
-    #     enabled: true
-    #     type: hostPath
-    #     hostPath: /dev/serial/by-id/usb-0658_0200-if00
+    persistence:
+      usb:
+        enabled: true
+        type: hostPath
+        hostPath: /dev/serial/by-id/usb-0658_0200-if00
     #     # hostPath: /dev/ttyACM0
     #     # hostPathType: CharDevice
     nodeSelector:
