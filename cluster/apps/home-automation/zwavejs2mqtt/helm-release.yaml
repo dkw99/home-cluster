@@ -82,7 +82,7 @@ spec:
       - name: config
         mountPath: /usr/src/app/store
         accessMode: ReadWriteOnce
-        size: 1Gi
+        size: 2Gi
         storageClass: ceph-block
     # persistence:
     #   usb:
