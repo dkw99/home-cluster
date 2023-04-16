@@ -5,4 +5,4 @@ resources:
   - emqx
   - esphome
   - home-assistant
-  # - zwavejs2mqtt
+  - zwavejs2mqtt
