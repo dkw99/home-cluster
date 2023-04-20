@@ -11,7 +11,7 @@ resources:
   - kube-tools
   - media-automation
   # - media-servers
-  # - monitoring
+  - monitoring
   - networking
   - storage
   - system-upgrade

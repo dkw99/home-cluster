@@ -1,0 +1,11 @@
+---
+- name: Octoprint
+  hosts: printer3d
+  become: true
+  remote_user: sysdkwise
+  vars:
+    install_octoprint: false
+
+  roles:
+    # - os
+    - semuadmin.octoprint

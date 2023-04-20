@@ -1,0 +1,3 @@
+ansible==7.3.0
+ansible-lint==6.14.2
+openshift==0.13.1

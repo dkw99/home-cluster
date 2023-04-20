@@ -1,0 +1,16 @@
+---
+collections:
+  - name: ansible.posix
+    version: 1.5.1
+  - name: community.general
+    version: 6.4.0
+  - name: community.docker
+    version: 3.4.2
+  - name: community.kubernetes
+    version: 2.0.1
+  - name: community.sops
+    version: 1.6.1
+roles:
+  - name: semuadmin.octoprint
+    src: https://github.com/semuconsulting/ansible_octoprint.git
+    version: v1.0.5

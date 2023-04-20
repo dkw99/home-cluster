@@ -1,0 +1,44 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    external-dns.alpha.kubernetes.io/target: ipv4.wisesalmon.net
+    external-dns.home.arpa/enabled: "true"
+    meta.helm.sh/release-name: home-assistant
+    meta.helm.sh/release-namespace: default
+    policies.kyverno.io/last-applied-patches: |
+      external-dns.apply-ingress-external-dns-annotations.kyverno.io: added /metadata/annotations/external-dns.alpha.kubernetes.io~1target
+  creationTimestamp: "2023-04-07T02:55:52Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/instance: home-assistant
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: home-assistant
+    helm.sh/chart: app-template-1.3.2
+    helm.toolkit.fluxcd.io/name: home-assistant
+    helm.toolkit.fluxcd.io/namespace: default
+  name: home-assistant
+  namespace: default
+  resourceVersion: "99130395"
+  uid: e7ddc79c-b2e5-43b4-8366-638dda48609a
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: hass.wisesalmon.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: home-assistant
+            port:
+              number: 8123
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - hass.wisesalmon.net
+status:
+  loadBalancer:
+    ingress:
+    - ip: 10.44.0.1

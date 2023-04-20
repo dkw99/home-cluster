@@ -1,0 +1,20 @@
+---
+# defaults file for octoprint
+
+install_octoprint: false
+install_mjpg_streamer: true
+uninstall_services: false
+uninstall_dependencies: false
+reset_config: false
+# Users
+webcam_user: mjpg_streamer
+octoprint_user: octoprint
+webcam_dir: "/home/{{ webcam_user }}/mjpg-streamer/mjpg-streamer-experimental"
+# octoprint_port: 5000
+# webcam_port: 8080
+webcam_type: usb
+webcam_device:  video0
+webcam_width: 1280
+webcam_height: 720
+webcam_fps: 15
+# custom_input: "input_uvc.so -d /dev/video1 -r {{webcam_width}}x{{webcam_height}} -f 15 -q 50"
