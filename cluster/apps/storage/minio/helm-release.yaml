@@ -77,7 +77,7 @@ spec:
           - hosts:
               - *host-console
               - *host-api
-            secretName: "{{ .Release.Name }}-tls"
+            # secretName: "{{ .Release.Name }}-tls"
     # podSecurityContext:
     #   runAsUser: 1000
     #   runAsGroup: 1000
