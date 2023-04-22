@@ -6,7 +6,7 @@ resources:
   - ./flux
   - ./grafana
   - ./kube-prometheus-stack
-  - ./loki
+  # - ./loki
   - ./speedtest-exporter
   - ./thanos
   - ./vector
