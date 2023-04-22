@@ -13,7 +13,7 @@ webcam_dir: "/home/{{ webcam_user }}/mjpg-streamer/mjpg-streamer-experimental"
 # octoprint_port: 5000
 # webcam_port: 8080
 webcam_type: usb
-webcam_device:  video0
+webcam_device: video0
 webcam_width: 1280
 webcam_height: 720
 webcam_fps: 15
