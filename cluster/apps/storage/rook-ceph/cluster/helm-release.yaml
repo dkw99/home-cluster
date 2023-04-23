@@ -150,7 +150,7 @@ spec:
               interval: 60s
         storageClass:
           enabled: true
-          name: ceph-bucket
+          name: rook-ceph-bucket
           reclaimPolicy: Delete
           parameters:
             region: us-east-1
