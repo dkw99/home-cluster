@@ -39,7 +39,7 @@ spec:
               - *host
     configOverride: |
       [global]
-      mon_max_pg_per_osd = 350
+      mon_max_pg_per_osd = 400
       bdev_enable_discard = true
       bdev_async_discard = true
     cephClusterSpec:
@@ -144,7 +144,7 @@ spec:
             #     memory: 1Gi
             #   limits:
             #     memory: 2Gi
-            instances: 1
+            instances: 2
           healthCheck:
             bucket:
               interval: 60s
