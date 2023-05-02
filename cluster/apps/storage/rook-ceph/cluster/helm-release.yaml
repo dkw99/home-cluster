@@ -142,4 +142,3 @@ spec:
           reclaimPolicy: Delete
           parameters:
             region: us-east-1
-
