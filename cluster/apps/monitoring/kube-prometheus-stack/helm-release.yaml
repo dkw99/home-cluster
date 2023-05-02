@@ -19,7 +19,7 @@ spec:
     remediation:
       retries: 5
   upgrade:
-    remediation: 
+    remediation:
       retries: 5
   dependsOn:
     - name: rook-ceph-cluster

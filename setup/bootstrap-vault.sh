@@ -28,7 +28,7 @@ message() {
 }
 
 kvault() {
-  
+
   name="secrets/$(dirname "$@" )/$(basename -s .txt "$@")"
   echo "Writing $name to vault"
   if output=$(envsubst < "$REPO_ROOT/$*"); then
@@ -198,7 +198,7 @@ loadSecretsToVault-oneoff() {
   message "writing secrets to vault"
   # kvault "monitoring/kube-prometheus-stack/kube-prometheus-stack-helm-values.txt"
   kvault "logs/loki/loki-helm-values.txt"
-  
+
 
 
 }
