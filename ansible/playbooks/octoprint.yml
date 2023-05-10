@@ -4,7 +4,7 @@
   become: true
   remote_user: sysdkwise
   vars:
-    install_octoprint: false
+    install_octoprint: true
 
   roles:
     # - os
