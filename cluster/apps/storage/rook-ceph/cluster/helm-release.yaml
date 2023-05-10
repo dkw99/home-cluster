@@ -59,7 +59,7 @@ spec:
         nodes:
           - name: k3s-node-0
             devices:
-              - name: '/dev/sdb'
+              - name: "/dev/sdb"
           - name: k3s-node-1
             devices:
               - name: "/dev/sdb"
