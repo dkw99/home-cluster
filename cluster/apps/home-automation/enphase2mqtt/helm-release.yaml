@@ -31,10 +31,8 @@ spec:
       repository: ghcr.io/dkw99/enphase2mqtt
       # tag: 2023.4.4
     service:
-  main:
-    ports:
-      http:
-        port: 80
+      main:
+         enabled: false
           
     env:
       ENPHASE2MQTT__ENVOY_HOST:  ${ENVOY_HOST_ADDR}
