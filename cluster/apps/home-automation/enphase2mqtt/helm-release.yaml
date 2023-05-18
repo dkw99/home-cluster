@@ -1,0 +1,36 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: &app enphase2mqtt
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    controller:
+      type: statefulset
+    image:
+      repository: ghcr.io/dkw99/enphase2mqtt
+      # tag: 2023.4.4
+    env:
+      ENPHASE2MQTT__ENVOY_HOST:  ${ENVOY_HOST_ADDR}
+    envFrom:
+      - secretRef:
+          name: *app
+
+
