@@ -20,13 +20,13 @@ spec:
       retries: 5
   upgrade:
     remediation:
-      retries: 4
+      retries: 5
   dependsOn:
     - name: emqx
       namespace: default
   values:
     controller:
-      type: statefulset
+      type: deployment
     image:
       repository: ghcr.io/dkw99/enphase2mqtt
       # tag: 2023.4.4
