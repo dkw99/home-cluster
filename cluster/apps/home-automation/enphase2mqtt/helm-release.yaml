@@ -31,13 +31,11 @@ spec:
       repository: ghcr.io/dkw99/enphase2mqtt
       # tag: 2023.4.4
     service:
-      main:
-         enabled: false
+       main:
+          enabled: false
           
     env:
       ENPHASE2MQTT__ENVOY_HOST:  ${ENVOY_HOST_ADDR}
     envFrom:
       - secretRef:
           name: *app
-
-
