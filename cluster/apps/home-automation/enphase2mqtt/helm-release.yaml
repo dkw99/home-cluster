@@ -20,7 +20,7 @@ spec:
       retries: 5
   upgrade:
     remediation:
-      retries: 4
+      retries: 5
   dependsOn:
     - name: emqx
       namespace: default
@@ -29,10 +29,10 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/dkw99/enphase2mqtt
-      # tag: 2023.4.4
+      tag: 1.4.0
     service:
       main:
-         enabled: false
+        enabled: false
     env:
       ENPHASE2MQTT__ENVOY_HOST: ${ENVOY_HOST_ADDR}
     envFrom:
