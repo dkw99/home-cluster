@@ -24,10 +24,10 @@ spec:
   dependsOn:
     - name: emqx
       namespace: default
-  values:
+  values: 
     image:
-      repository: ghcr.io/dkw99/enphase2mqtt:1.0.40@sha256:b12c0e2086345aa7c2f1f05a006b570256a73ee7a52b663a2fcc83823a97a874
-      # tag: rolling
+      repository: ghcr.io/dkw99/enphase2mqtt
+      tag: 1.0.40
     service:
       main:
         enabled: false
