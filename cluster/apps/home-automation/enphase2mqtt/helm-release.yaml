@@ -26,8 +26,8 @@ spec:
       namespace: default
   values:
     image:
-      repository: ghcr.io/dkw99/enphase2mqtt-main
-      tag: sha256:4213e56926bbe80f78cb4d1363353c410a88211d6b0d581e2a52bf41633c593f
+      repository: docker pull ghcr.io/dkw99/enphase2mqtt:rolling
+      # tag: sha256:4213e56926bbe80f78cb4d1363353c410a88211d6b0d581e2a52bf41633c593f
     service:
       main:
         enabled: false
