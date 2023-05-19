@@ -27,7 +27,7 @@ spec:
   values:
     image:
       repository: docker pull ghcr.io/dkw99/enphase2mqtt
-      tag: rolling
+      tag: 1.0.40@sha256:b329bf32d6d2fc79a5e646ea994801707b9413f609d2a362408f53ea4a2404d7
     service:
       main:
         enabled: false
