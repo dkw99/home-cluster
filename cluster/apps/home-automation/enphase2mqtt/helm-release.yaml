@@ -27,12 +27,13 @@ spec:
   values:
     image:
       repository: ghcr.io/dkw99/enphase2mqtt
-      tag: rolling@sha256:212622a3e7bb0f25dad158da415e5db7c27c684059b5ca8af94206e6aa3c57ce
+      tag: rolling@sha256:31c6bbe0e6463bb782e6897a4a46b063bd2aa30668cda0801b78526d166dc432
     service:
       main:
         enabled: false
     env:
       ENPHASE2MQTT__ENVOY_HOST: ${ENVOY_HOST_ADDR}
+      ENPHASE2MQTT__MQTT_HOST:  emqx.default.svc.cluster.local
     envFrom:
       - secretRef:
           name: *app
