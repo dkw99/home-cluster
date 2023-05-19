@@ -27,7 +27,7 @@ spec:
   values:
     image:
       repository: ghcr.io/dkw99/enphase2mqtt
-      tag: rolling@sha256:a09f18a6dd49f325ed145db87b3db5bdb86288305337a0b202cb75296dc02a58
+      tag: rolling@sha256:7c3eb3af6cb77ed04f9d8fd1430a0798aafa4367d0eb1657b740b82032d0d38a
     service:
       main:
         enabled: false
@@ -37,4 +37,4 @@ spec:
       - secretRef:
           name: *app
     securityContext:
-        privileged: true
+      privileged: true
