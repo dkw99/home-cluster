@@ -53,9 +53,9 @@ spec:
           rtsp-tcp:
             port: 554
             prtocol: TCP
-          rtsp-udp:
-            port: 554
-            protocol: UDP
+          #rtsp-udp:
+          #  port: 554
+          #  protocol: UDP
 
     ingress:
       main:
