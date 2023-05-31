@@ -43,8 +43,20 @@ spec:
         ports:
           http:
             port: 3000
-          rtsp:
+      rtsp:
+        type: LoadBalancer
+        externalIPs: ["${NEST_RTSP_SVC_IP}"]
+        externalTrafficPolicy: Local
+        enabled: true
+        primary: false
+        ports:
+          rtspTCP:
             port: 554
+            prtocol: TCP
+          rtspUDP:
+            port: 554
+            protocol: UDP
+
     ingress:
       main:
         enabled: true
