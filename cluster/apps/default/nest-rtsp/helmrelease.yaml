@@ -34,6 +34,7 @@ spec:
       repository: jakguru/nest-rtsp
       tag: stable
     env:
+      GA_OAUTH_RDR: https://nrtsp.${SECRET_PUBLIC_DOMAIN}
     envFrom:
       - secretRef:
           name: *app
