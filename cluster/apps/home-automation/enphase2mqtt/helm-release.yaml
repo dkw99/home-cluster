@@ -33,7 +33,7 @@ spec:
         enabled: false
     env:
       ENPHASE2MQTT__ENVOY_HOST: envoy.${SECRET_PRIVATE_DOMAIN}
-      ENPHASE2MQTT__MQTT_HOST:  emqx.default.svc.cluster.local
+      ENPHASE2MQTT__MQTT_HOST: emqx.default.svc.cluster.local
     envFrom:
       - secretRef:
           name: *app
