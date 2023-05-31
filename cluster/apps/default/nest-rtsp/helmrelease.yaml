@@ -50,10 +50,10 @@ spec:
         enabled: true
         primary: false
         ports:
-          rtspTCP:
+          rtsp-tcp:
             port: 554
             prtocol: TCP
-          rtspUDP:
+          rtsp-udp:
             port: 554
             protocol: UDP
 
