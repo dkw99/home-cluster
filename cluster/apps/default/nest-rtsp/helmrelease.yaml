@@ -48,11 +48,11 @@ spec:
       main:
         enabled: true
         annotations:
-          # external-dns.home.arpa/enabled: "true"
+          external-dns.home.arpa/enabled: "true"
           cert-manager.home.arpa/enabled: "true"
           # auth.home.arpa/enabled: "true"
         hosts:
-          - host: &host nrstp.${SECRET_PUBLIC_DOMAIN}
+          - host: &host nrtsp.${SECRET_PUBLIC_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
