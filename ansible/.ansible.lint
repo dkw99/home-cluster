@@ -1,8 +1,0 @@
-
-skip_list:
-    - yaml
-
-exclude_paths:
-  - roles/xanmanning.k3s/
-  - roles/semuadmin.octoprint/
-  - inventory/host_vars/*.sops.yml
