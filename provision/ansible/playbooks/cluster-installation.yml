@@ -17,7 +17,7 @@
       register: k3s_check_installed
 
     - name: Create k3s resolv.conf
-      copy:
+      ansible.builtin.copy:
         dest: "/etc/k3s-resolv.conf"
         content: |
           nameserver {{ k3s_resolv_nameserver }}

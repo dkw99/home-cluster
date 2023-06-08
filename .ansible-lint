@@ -1,11 +1,13 @@
 # .ansible-lint
 skip_list:
-  - yaml[line-length]
+  - yaml
   - var-naming
+  - risky-file-permissions
 warn_list:
   - command-instead-of-shell
   - deprecated-command-syntax
   - experimental
   - no-changed-when
-mock_roles:
-  - semuadmin.octoprint
+exclude_paths:
+  - roles/xanmanning.k3s/
+  - inventory/host_vars/*.sops.yml
