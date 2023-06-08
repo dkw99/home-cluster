@@ -31,7 +31,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/onedr0p/home-assistant
-      tag: 2023.5.3@sha256:8aebe1cf0059784e5df7a1f62a93f8130cf49e92c736580fc255b57586ccd39a
+      tag: 2023.6.0@sha256:258dfeea8bbabe5e1072905491d0f336585412d0b68bedb28a81652653f9343d
     env:
       TZ: "${TIMEZONE}"
       POSTGRES_HOST: postgres-rw.default.svc.cluster.local
