@@ -1,11 +1,11 @@
 ---
 collections:
   - name: ansible.posix
-    version: 1.5.2
+    version: 1.5.4
   - name: community.general
-    version: 6.5.0
+    version: 7.0.1
   - name: community.docker
-    version: 2.0.1
+    version: 3.4.6
   - name: community.sops
     version: 1.6.1
 roles:
