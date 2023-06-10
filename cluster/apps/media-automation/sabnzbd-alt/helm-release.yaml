@@ -65,9 +65,9 @@ spec:
             proxy_cache_bypass $cookie_session;
             proxy_no_cache $cookie_session;
             proxy_buffers 32 4k;
-            proxy_set_header Accept-Encoding "";
-            sub_filter '</head>' '<link rel="stylesheet" type="text/css" href="https://theme-park.${SECRET_PUBLIC_DOMAIN}/css/base/sabnzbd/blackberry-abyss.css"></head>';
-            sub_filter_once on;
+            # proxy_set_header Accept-Encoding "";
+            # sub_filter '</head>' '<link rel="stylesheet" type="text/css" href="https://theme-park.${SECRET_PUBLIC_DOMAIN}/css/base/sabnzbd/blackberry-abyss.css"></head>';
+            # sub_filter_once on;
         hosts:
           - host: &host "sabnzbd1.${SECRET_PUBLIC_DOMAIN}"
             paths:
