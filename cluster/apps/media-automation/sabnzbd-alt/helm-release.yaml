@@ -40,7 +40,6 @@ spec:
         sabnzbd1.default.svc.cluster,
         sabnzbd1.default.svc.cluster.local,
         sabnzbd1.${SECRET_PUBLIC_DOMAIN}
-        
     envFrom:
       - secretRef:
           name: *app
