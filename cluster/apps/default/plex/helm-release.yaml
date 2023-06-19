@@ -31,7 +31,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/dkw99/plex
-      tag: 1.32.3.7192-7aa441827@sha256:19525d2161ae37841420a10a4d94f9cf20af5c56ebfc66fe0aa07ec90c63df53
+      tag: 1.32.4.7195-7c8f9d3b6@sha256:ec5dfaeae08f8e7965def552db64f6a59ba9665ee4dea7b06e16d29e3d0c53d3
     env:
       TZ: ${TIMEZONE}
     envFrom:
