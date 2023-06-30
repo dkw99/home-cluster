@@ -7,7 +7,7 @@ collections:
   - name: community.docker
     version: 3.4.7
   - name: community.sops
-    version: 1.6.2
+    version: 1.6.4
 roles:
   - name: semuadmin.octoprint
     src: https://github.com/semuconsulting/ansible_octoprint.git
