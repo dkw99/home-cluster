@@ -27,7 +27,7 @@ spec:
   values:
     image:
       repository: ghcr.io/dkw99/enphase2mqtt
-      tag: rolling@sha256:4e72ffc981d684fc87b676c0fc57813c45ee05b36f65b8d81887a45826c71026
+      tag: rolling@sha256:ffd36a8a3941aead0d0102c70112a44a192c829015ca764279865640f0f1b9a4
     service:
       main:
         enabled: false
