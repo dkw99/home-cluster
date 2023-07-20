@@ -15,13 +15,16 @@ spec:
         name: external-dns
         namespace: flux-system
       interval: 15m
+  maxHistory: 3
   install:
-    createNamespace: true
     remediation:
-      retries: 5
+      retries: 3
   upgrade:
+    cleanupOnFail: true
     remediation:
-      retries: 5
+      retries: 3
+  uninstall:
+    keepHistory: false
   values:
     interval: 5m
     logLevel: debug
@@ -41,10 +44,12 @@ spec:
       - --cloudflare-proxied
       - --annotation-filter=external-dns.home.arpa/enabled in (true)
     policy: sync
-    sources: ["ingress"]
+    sources:
+      - ingress
     txtPrefix: "k8s."
     txtOwnerId: "default"
-    domainFilters: ["${SECRET_PUBLIC_DOMAIN}"]
+    domainFilters: 
+      - ${SECRET_PUBLIC_DOMAIN}
     resources:
       requests:
         memory: 100Mi
