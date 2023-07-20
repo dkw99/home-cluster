@@ -29,7 +29,7 @@ spec:
       type: statefulset
     image:
       repository: docker.io/esphome/esphome
-      tag: 2023.6.4
+      tag: 2023.7.0
     env:
       ESPHOME_DASHBOARD_USE_PING: true
     service:
