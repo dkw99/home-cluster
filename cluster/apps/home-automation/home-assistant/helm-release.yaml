@@ -58,14 +58,14 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           cert-manager.home.arpa/enabled: "true"
         hosts:
-          - host: &host "hass.${SECRET_PUBLIC_DOMAIN}"
+          - host: &host hass.${SECRET_PUBLIC_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
               - *host
-            secretName: hass-tls-1
+            secretName: hass-tls
     probes:
       liveness:
         enabled: false
