@@ -66,7 +66,8 @@ spec:
       AUTHELIA_NOTIFIER_SMTP_SENDER: "Authelia-wisesalmon <${SECRET_PRIVATE_EMAIL}>"
       AUTHELIA_NOTIFIER_SMTP_USERNAME: "${SECRET_PRIVATE_EMAIL}"
       AUTHELIA_SERVER_DISABLE_HEALTHCHECK: "true"
-      AUTHELIA_SERVER_PORT: &port 80
+      AUTHELIA_SERVER_ADDRESS: tcp://0.0.0.0:80
+      #AUTHELIA_SERVER_PORT: &port 80
       AUTHELIA_SESSION_DOMAIN: "${SECRET_PUBLIC_DOMAIN}"
       AUTHELIA_SESSION_REDIS_DATABASE_INDEX: 14
       AUTHELIA_SESSION_REDIS_HOST: redis.default.svc.cluster.local
@@ -85,7 +86,8 @@ spec:
       main:
         ports:
           http:
-            port: *port
+            port:  80
+            # *port
           metrics:
             enabled: true
             port: 8080
