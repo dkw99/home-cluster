@@ -5,39 +5,46 @@ metadata:
   name: redis
   namespace: default
 spec:
-  interval: 15m
+  interval: 30m
+  timeout: 15m
   chart:
     spec:
       chart: redis
-      version: 17.15.2
+      version: 17.15.5
       sourceRef:
         kind: HelmRepository
         name: bitnami
         namespace: flux-system
+  maxHistory: 2
   install:
-    createNamespace: true
     remediation:
       retries: 3
   upgrade:
+    cleanupOnFail: true
     remediation:
       retries: 3
-  dependsOn:
-    - name: rook-ceph-cluster
-      namespace: rook-ceph
+  uninstall:
+    keepHistory: false
   values:
-    global:
-      # imageRegistry: public.ecr.aws
-      storageClass: ceph-block
     auth:
       enabled: false
       sentinel: false
+    master:
+      persistence:
+        enabled: false
+    replica:
+      persistence:
+        enabled: false
     sentinel:
       enabled: true
       masterSet: redis-master
       getMasterTimeout: 10
       startupProbe:
         failureThreshold: 2
+      persistence:
+        enabled: false
     metrics:
       enabled: true
       serviceMonitor:
         enabled: true
+        interval: 1m
