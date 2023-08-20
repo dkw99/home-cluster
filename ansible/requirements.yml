@@ -11,4 +11,4 @@ collections:
 roles:
   - name: semuadmin.octoprint
     src: https://github.com/semuconsulting/ansible_octoprint.git
-    version: v1.0.6
+    version: v1.0.7
