@@ -30,8 +30,11 @@ spec:
     service:
       main:
         ports:
-          tcp:
+          piper:
+            enabled: true
+            primary: true
             port: 10200
+            protocol: udp
     volumeClaimTemplates:
       - name: data
         mountPath: /data
