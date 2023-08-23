@@ -30,7 +30,7 @@ spec:
     service:
       main:
         ports:
-          wy_piper:
+          wypiper:
             enabled: true
             primary: true
             port: 10200
