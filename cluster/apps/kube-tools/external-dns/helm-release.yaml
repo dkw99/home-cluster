@@ -48,7 +48,7 @@ spec:
       - ingress
     txtPrefix: "k8s."
     txtOwnerId: "default"
-    domainFilters: 
+    domainFilters:
       - ${SECRET_PUBLIC_DOMAIN}
     resources:
       requests:

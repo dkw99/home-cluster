@@ -34,7 +34,7 @@ spec:
       01-init-db:
         image: ghcr.io/onedr0p/postgres-init:14.8
         imagePullPolicy: IfNotPresent
-        envFrom: 
+        envFrom:
           - secretRef:
               name: *app
     controller:
@@ -86,7 +86,7 @@ spec:
       main:
         ports:
           http:
-            port:  80
+            port: 80
             # *port
           metrics:
             enabled: true

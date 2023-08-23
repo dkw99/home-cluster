@@ -44,7 +44,7 @@ spec:
             # -- Port protocol.
             # Support values are `HTTP`, `HTTPS`, `TCP` and `UDP`.
             # HTTPS and HTTPS spawn a TCP service and get used for internal URL and name generation
-            protocol: UDP
+            protocol: HTTP
 
             # -- Specify a service targetPort if you wish to differ the service port from the application port.
             # If `targetPort` is specified, this port number is used in the container definition instead of
@@ -56,7 +56,7 @@ spec:
         accessMode: ReadWriteOnce
         size: 2Gi
         storageClass: ceph-block
-    
+
     topologySpreadConstraints:
       - maxSkew: 1
         topologyKey: kubernetes.io/hostname
