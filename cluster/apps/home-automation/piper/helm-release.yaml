@@ -27,6 +27,7 @@ spec:
     image:
       repository: rhasspy/wyoming-piper
       tag: 1.3.2@sha256:42a2a402e6c21e8b9460db76ef367d621eb16878f5fb1c66626c699f30ca034a
+    args: ["--voice en_US-lessac-medium"]
     service:
       main:
         ports:
