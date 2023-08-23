@@ -30,8 +30,9 @@ spec:
     service:
       main:
         ports:
-          http:
+          wy_piper:
             enabled: true
+            primary: true
             port: 10200
     volumeClaimTemplates:
       - name: data
