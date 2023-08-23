@@ -49,7 +49,7 @@ spec:
             # -- Specify a service targetPort if you wish to differ the service port from the application port.
             # If `targetPort` is specified, this port number is used in the container definition instead of
             # the `port` value. Therefore named ports are not supported for this field.
-            targetPort: 8080
+            targetPort: 10200
     volumeClaimTemplates:
       - name: data
         mountPath: /data
