@@ -79,11 +79,11 @@ spec:
               secretKeyRef:
                 name: downloads-gateway
                 key: SERVER_REGIONS
-          - name: SERVER_HOSTNAMES
-            valueFrom:
-              secretKeyRef:
-                name: downloads-gateway
-                key: SERVER_HOSTNAMES
+          # - name: SERVER_HOSTNAMES
+          #   valueFrom:
+          #     secretKeyRef:
+          #       name: downloads-gateway
+          #       key: SERVER_HOSTNAMES
         resources:
           requests:
             cpu: 5m
