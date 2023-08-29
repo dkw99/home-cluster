@@ -5,6 +5,7 @@ resources:
   - authentication
   - default
   - databases
+  - downloads
   - flux-system
   - home-automation
   - kube-system
@@ -16,3 +17,4 @@ resources:
   - storage
   - system-upgrade
   - web-tools
+  - vpn
