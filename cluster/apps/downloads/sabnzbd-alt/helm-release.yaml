@@ -75,6 +75,21 @@ spec:
         tls:
           - hosts:
               - *host
+    probes:
+      liveness: &probes
+        enabled: true
+        custom: true
+        spec:
+          httpGet:
+            path: /api?mode=version
+            port: *port
+          initialDelaySeconds: 0
+          periodSeconds: 10
+          timeoutSeconds: 1
+          failureThreshold: 3
+      readiness: *probes
+      startup:
+        enabled: false
     metrics:
       enabled: true
       serviceMonitor:
@@ -97,6 +112,8 @@ spec:
       fsGroupChangePolicy: "OnRootMismatch"
       supplementalGroups:
         - 100
+    podAnnotations:
+      setDownloadGateway: "true"
     volumeClaimTemplates:
       - name: config
         mountPath: /config
