@@ -5,5 +5,4 @@ resources:
   - prowlarr
   - radarr
   - sabnzbd
-  - sabnzbd-alt
   - sonarr
