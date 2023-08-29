@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: &app sabnzbd1
+  name: &app sabnzbd-alt
   namespace: downloads
 spec:
   interval: 15m
@@ -68,7 +68,7 @@ spec:
             # sub_filter '</head>' '<link rel="stylesheet" type="text/css" href="https://theme-park.${SECRET_PUBLIC_DOMAIN}/css/base/sabnzbd/blackberry-abyss.css"></head>';
             # sub_filter_once on;
         hosts:
-          - host: &host "sabnzbd1.${SECRET_PUBLIC_DOMAIN}"
+          - host: &host "sabnzbd-alt.${SECRET_PUBLIC_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
