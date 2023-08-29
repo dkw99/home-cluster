@@ -101,7 +101,7 @@ spec:
                 - ipBlock:
                     cidr: 0.0.0.0/0
               ports:
-                - port: 51820
+                - port: 1194
                   protocol: UDP
             - to:
                 - ipBlock:
@@ -115,7 +115,7 @@ spec:
       NOT_ROUTED_TO_GATEWAY_CIDRS: ${NET_POD_CIDR} ${NET_SVC_CIDR} ${NET_SERVER_CIDR}
       VPN_INTERFACE: tun0
       VPN_BLOCK_OTHER_TRAFFIC: true
-      VPN_TRAFFIC_PORT: "51820"
+      VPN_TRAFFIC_PORT: "1194"
       VPN_LOCAL_CIDRS: ${NET_POD_CIDR} ${NET_SVC_CIDR} ${NET_SERVER_CIDR}
       DNS_LOCAL_CIDRS: ${SECRET_PRIVATE_DOMAIN}
       IPTABLES_NFT: "yes"
