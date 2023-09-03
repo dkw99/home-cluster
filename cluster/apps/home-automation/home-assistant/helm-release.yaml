@@ -27,6 +27,13 @@ spec:
     - name: postgres
       namespace: default
   values:
+    initContainers:
+      01-init-db:
+        image: ghcr.io/onedr0p/postgres-init:14.8
+        imagePullPolicy: IfNotPresent
+        envFrom: &envFrom
+          - secretRef:
+              name: home-assistant-secret
     controller:
       type: statefulset
     image:
@@ -37,9 +44,7 @@ spec:
       POSTGRES_HOST: postgres-rw.default.svc.cluster.local
       POSTGRES_DB: home_assistant
       HOME_ASSISTANT__HACS_INSTALL: "false"
-    envFrom:
-      - secretRef:
-          name: *app
+    envFrom: *envFrom
     service:
       main:
         type: LoadBalancer
