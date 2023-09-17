@@ -16,18 +16,15 @@ spec:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-
   values:
     controllers:
       main:
         annotations:
           configmap.reloader.stakater.com/reload: qbittorrent-scripts,qbittorrent-dnsdist
-
         pod:
           securityContext:
             supplementalGroups:
               - 65539
-
         containers:
           main:
             nameOverride: qbittorrent
