@@ -110,9 +110,6 @@ spec:
         labels:
           snapshot.home.arpa/enabled: "true"
     persistence:
-      config:
-        enabled: true
-        existingClaim: qbittorrent-config
       media:
         enabled: true
         type: custom
