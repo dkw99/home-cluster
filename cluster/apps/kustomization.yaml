@@ -17,4 +17,4 @@ resources:
   - storage
   - system-upgrade
   - web-tools
-  - vpn
+  # - vpn
