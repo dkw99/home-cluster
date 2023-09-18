@@ -54,7 +54,7 @@ spec:
               tag: latest@sha256:088a23ddfe3d4843b0c14d5b7a2101ebfd0143e177a374fe4786da95b78583e0
             env:
               - name: VPN_SERVICE_PROVIDER
-                value: custom
+                value: "private internet access"
               - name: VPN_TYPE
                 value: openvpn
               # - name: VPN_INTERFACE
