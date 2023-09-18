@@ -57,8 +57,8 @@ spec:
                 value: "private internet access"
               - name: VPN_TYPE
                 value: openvpn
-              # - name: VPN_INTERFACE
-              #   value: wg0
+              - name: VPN_INTERFACE
+                value: tun0
               # - name: VPN_ENDPOINT_PORT
               #   value: "51822"
               # - name: VPN_PORT_FORWARDING
