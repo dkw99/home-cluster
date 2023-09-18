@@ -71,7 +71,7 @@ spec:
                 # Allow access to k8s subnets
                 value: "10.42.0.0/16,10.43.0.0/16"
               - name: SHADOWSOCKS
-                value: "off"
+                value: "on"
               - name: DOT
                 value: "off"
               - name: DNS_PLAINTEXT_ADDRESS
