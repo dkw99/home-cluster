@@ -56,11 +56,11 @@ spec:
               - name: VPN_SERVICE_PROVIDER
                 value: custom
               - name: VPN_TYPE
-                value: wireguard
-              - name: VPN_INTERFACE
-                value: wg0
+                value: openvpn
+              # - name: VPN_INTERFACE
+              #   value: wg0
               - name: VPN_ENDPOINT_PORT
-                value: "51820"
+                value: "51822"
               - name: VPN_PORT_FORWARDING
                 value: "on"
               - name: FIREWALL_INPUT_PORTS
