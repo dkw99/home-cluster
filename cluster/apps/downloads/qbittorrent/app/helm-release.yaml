@@ -58,7 +58,7 @@ spec:
               - name: VPN_TYPE
                 value: wireguard
               - name: VPN_INTERFACE
-                value: wg
+                value: wg0
               - name: VPN_ENDPOINT_PORT
                 value: "1337"
               - name: VPN_PORT_FORWARDING
