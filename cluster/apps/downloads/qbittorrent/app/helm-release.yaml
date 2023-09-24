@@ -54,15 +54,13 @@ spec:
               tag: latest@sha256:01ff101b1b158bbcda9ea8583fb03a9bbd85750028c5803aa705b1b58bede3ad
             env:
               - name: VPN_SERVICE_PROVIDER
-                value: custom
+                value: private internet access
               - name: VPN_TYPE
-                value: wireguard
+                value: openvpn
               - name: VPN_INTERFACE
-                value: wg0
-              - name: VPN_ENDPOINT_PORT
-                value: "1337"
+                value: tun0
               - name: VPN_PORT_FORWARDING
-                value: "off"
+                value: "on"
               - name: VPN_PORT_FORWARDING_PROVIDER
                 value: "private internet access"
               - name: FIREWALL_INPUT_PORTS
