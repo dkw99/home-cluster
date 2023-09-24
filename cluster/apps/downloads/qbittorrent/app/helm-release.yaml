@@ -60,7 +60,7 @@ spec:
               - name: VPN_INTERFACE
                 value: tun0
               - name: VPN_PORT_FORWARDING
-                value: "on"
+                value: "off"
               - name: VPN_PORT_FORWARDING_PROVIDER
                 value: "private internet access"
               - name: FIREWALL_INPUT_PORTS
