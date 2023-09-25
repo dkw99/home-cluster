@@ -2,7 +2,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - authentication
+  # - authentication
   - default
   - databases
   - downloads
@@ -12,7 +12,7 @@ resources:
   - kube-tools
   - media-automation
   # - media-servers
-  - monitoring
+  # - monitoring
   - networking
   - storage
   - system-upgrade
