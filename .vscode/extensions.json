@@ -1,18 +1,14 @@
 {
     "recommendations": [
-        "HashiCorp.terraform",
+        "albert.TabOut",
         "britesnow.vscode-toggle-quotes",
+        "fcrespo82.markdown-table-formatter",
+        "mikestead.dotenv",
         "mitchdenny.ecdc",
-        "ms-kubernetes-tools.vscode-kubernetes-tools",
-        "oderwat.indent-rainbow",
         "redhat.ansible",
         "signageos.signageos-vscode-sops",
-        "usernamehw.errorlens",
-        "fcrespo82.markdown-table-formatter"
-    ],
-
-        "files.associations": {
-            "**/cluster/**/*.sops.toml": "plaintext"
-        }
-
+        "will-stone.in-any-case",
+        "EditorConfig.editorconfig",
+        "PKief.material-icon-theme",
+    ]
 }

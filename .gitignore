@@ -3,16 +3,22 @@
 Thumbs.db
 # k8s
 kubeconfig
-# vscode-sops
+kubeconfig
 .decrypted~*.yaml
 .config.env
-setup/
 *.agekey
 *.pub
 *.key
 github-deploy-key*
+# vscode-sops
+.config.env
+setup/
+bootstrap/vars/config.yaml
+
+
+
 # Ansible
-xanmanning.k3s*
+.venv*
 # Terraform
 .terraform
 .terraform.tfstate*
@@ -21,3 +27,10 @@ megalinter-reports
 cert-values.yml
 temp/
 tmpl/
+
+# k8s
+
+# Ansible
+
+# Taskfile
+.tasks

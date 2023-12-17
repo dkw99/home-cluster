@@ -1,2 +1,0 @@
----
-ansible_python_interpreter: /var/packages/python310/target/bin/python3.10

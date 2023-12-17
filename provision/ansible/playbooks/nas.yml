@@ -1,6 +1,0 @@
----
-- name: Synology NAS
-  hosts:
-    - nas
-  roles:
-    - synology
