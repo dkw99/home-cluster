@@ -25,6 +25,8 @@ spec:
   uninstall:
     keepHistory: false
   dependsOn:
+    - name: mosquitto
+      namespace: home-automation
     - name: local-path-provisioner
       namespace: storage
   #  - name: rook-ceph-cluster
