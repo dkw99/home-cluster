@@ -105,15 +105,11 @@ spec:
           - hosts:
               - *host
               - *customHost
-    volumeClaimTemplates:
-      - name: config
-        mountPath: /config
-        accessMode: ReadWriteOnce
-        size: 5Gi
-        storageClass: local-hostpath
-        labels:
-          snapshot.home.arpa/enabled: "true"
+    
     persistence:
+      config:
+        enabled: true
+        existingClaim: home-assistant-config
       backups:
         enabled: true
         type: custom
