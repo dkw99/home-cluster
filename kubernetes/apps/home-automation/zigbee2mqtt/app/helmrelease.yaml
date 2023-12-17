@@ -121,4 +121,4 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: zigbee2mqtt
+        existingClaim: zigbee2mqtt-config
