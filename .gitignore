@@ -21,3 +21,5 @@ megalinter-reports
 cert-values.yml
 temp/
 tmpl/
+.venv
+config.yaml
