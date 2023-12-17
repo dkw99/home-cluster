@@ -1,0 +1,8 @@
+---
+kubernetes:
+  children:
+    master:
+      hosts:
+        k3s-node-0:
+          ansible_user: dkwise
+          ansible_host: 192.168.16.100
