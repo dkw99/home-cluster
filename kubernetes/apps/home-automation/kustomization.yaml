@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./home-assistant/ks.yaml
-  - ./mosquito/ks.yaml
+  - ./mosquitto/ks.yaml
   - ./zigbee2mqtt/ks.yaml
   - ./ zave-js-ui/ks.yaml
 
