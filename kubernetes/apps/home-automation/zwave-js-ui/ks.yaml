@@ -6,7 +6,7 @@ metadata:
   name: &app zwave-js-ui
   namespace: flux-system
 spec:
-  targetNamespace: hopme-automation
+  targetNamespace: home-automation
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
