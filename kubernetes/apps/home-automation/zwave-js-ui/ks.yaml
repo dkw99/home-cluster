@@ -11,7 +11,7 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   dependsOn:
-    - name: external-secrets-stores
+    # - name: external-secrets-stores
     - name: node-feature-discovery-rules
   path: ./kubernetes/apps/home-automation/zwave-js-ui/app
   prune: true
