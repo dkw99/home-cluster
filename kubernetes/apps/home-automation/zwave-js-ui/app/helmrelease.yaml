@@ -1,0 +1,114 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/helm.toolkit.fluxcd.io/helmrelease_v2beta2.json
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: zwave-js-ui
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 2.4.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  maxHistory: 2
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  dependsOn:
+    - name: local-path-provisioner
+      namespace: storage
+  #  - name: rook-ceph-cluster
+  #    namespace: rook-ceph
+  #  - name: volsync
+  #    namespace: storage
+  values:
+    controllers:
+      main:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
+          main:
+            image:
+              repository: ghcr.io/zwave-js/zwave-js-ui
+              tag: 9.6.0@sha256:716bd40a1ce44f66b2e362202d5eaa0da5cdaa141d7473053ace1cf0d97606e7
+            env:
+              TZ: Australia/Sydney
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /health
+                    port: &port 8091
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
+              startup:
+                enabled: false
+            securityContext:
+              privileged: true
+            resources:
+              requests:
+                cpu: 50m
+                memory: 64Mi
+              limits:
+                memory: 512Mi
+        pod:
+          nodeSelector:
+            aeotec.feature.node.kubernetes.io/zwave: "true"
+    service:
+      main:
+        ports:
+          http:
+            port: *port
+          websocket:
+            port: 3000
+    serviceMonitor:
+      main:
+        enabled: true # requires https://github.com/kvaster/zwavejs-prom
+    ingress:
+      main:
+        enabled: true
+        className: internal
+        hosts:
+          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  name: main
+                  port: http
+          - host: &customHost "zwave.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  name: main
+                  port: http
+        tls:
+          - hosts:
+              - *host
+              - *customHost
+    persistence:
+      config:
+        enabled: true
+        existingClaim: zwave-js-ui
+        globalMounts:
+          - path: /usr/src/app/store
+      usb:
+        type: hostPath
+        hostPath: /dev/serial/by-id/usb-0658_0200-if00
+        hostPathType: CharDevice
+        globalMounts:
+          - path: /dev/serial/by-id/usb-0658_0200-if00
