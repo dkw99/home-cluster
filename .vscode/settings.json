@@ -1,20 +1,27 @@
 {
-    "ansible.ansibleLint.arguments": "-c .github/linters/.ansible-lint",
+    "ansible.ansible.path": ".venv/bin/ansible",
+    "ansible.python.activationScript": ".venv/bin/activate",
+    "ansible.python.interpreterPath": ".venv/bin/python3",
+    "ansible.validation.enabled": true,
+    "ansible.validation.lint.arguments": "-c ansible/.ansible-lint",
+    "ansible.validation.lint.enabled": true,
+    "ansible.validation.lint.path": ".venv/bin/ansible-lint",
     "files.associations": {
         "*.json5": "jsonc",
-        "**/provision/ansible/**/*.yml": "ansible",
-        "**/provision/ansible/**/*.sops.yml": "yaml",
-        "**/provision/ansible/**/inventory/**/*.yml": "yaml",
-        "**/provision/terraform/**/*.tf": "terraform"
+        "./ansible/**/*.yaml": "ansible",
+        "./ansible/**/*.sops.yaml": "yaml",
+        "./ansible/**/inventory/**/*.yaml": "yaml",
+        "./kubernetes/**/*.sops.toml": "plaintext"
     },
-    "prettier.configPath": ".github/linters/.prettierrc.yaml",
-    "prettier.ignorePath": ".github/linters/.prettierignore",
+    "sops.defaults.ageKeyFile": "age.key",
     "yaml.schemas": {
-        "Kubernetes": "cluster/*.yaml"
+        "ansible": "./ansible/*.yaml",
+        "Kubernetes": "./kubernetes/*.yaml"
     },
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs":"active",
-    "editor.hover.delay": 1500,
-    "ansible.python.interpreterPath": "/home/linuxbrew/.linuxbrew/bin/python3",
-    "C_Cpp.dimInactiveRegions": false
+    "vs-kubernetes": {
+        "vs-kubernetes.kubeconfig": "./kubeconfig",
+        "vs-kubernetes.knownKubeconfigs": [
+          "./kubeconfig"
+      ]
+    }
 }
