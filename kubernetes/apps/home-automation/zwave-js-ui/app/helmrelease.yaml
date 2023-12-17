@@ -105,7 +105,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: zwave-js-ui
+        existingClaim: zwave-js-ui-config
         globalMounts:
           - path: /usr/src/app/store
       usb:
