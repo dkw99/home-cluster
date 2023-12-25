@@ -20,9 +20,6 @@ spec:
       main:
         annotations:
           secret.reloader.stakater.com/reload: esphome-secrets,esphome-deploykey
-
-
-
         containers:
           main:
             image:
@@ -51,7 +48,7 @@ spec:
     ingress:
       main:
         enabled: true
-        className: "internal-nginx"
+        className: "internal"
         hosts:
           - host: "${HOSTNAME}"
             paths:
@@ -71,12 +68,12 @@ spec:
           main:
             main:
               - path: /config
-      # secrets:
-      #   type: secret
-      #   name: esphome-secret
-      #   globalMounts:
-      #     - path: /config/secrets.yaml
-      #       subPath: secrets.yaml
+      secrets:
+        type: secret
+        name: esphome-secret
+        globalMounts:
+          - path: /config/secrets.yaml
+            subPath: secrets.yaml
       esphome-cache:
         type: emptyDir
         globalMounts:
