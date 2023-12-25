@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Deploy a Kubernetes cluster backed by Flux
 
 Welcome to my highly opinionated template for deploying a single Kubernetes ([k3s](https://k3s.io)) cluster with [Ansible](https://www.ansible.com) and using [Flux](https://toolkit.fluxcd.io) to manage its state.
@@ -598,6 +599,10 @@ The benefits of a public repository include:
 ## 🤝 Thanks
 
 Big shout out to all the contributors, sponsors and everyone else who has helped on this project.
+=======
+# home-cluster-k3s
+Template for creating a k3s cluster with k3sup, flux and sops
+>>>>>>> cc48dae0 (Initial commit)
 =======
 # home-cluster-k3s
 Template for creating a k3s cluster with k3sup, flux and sops
