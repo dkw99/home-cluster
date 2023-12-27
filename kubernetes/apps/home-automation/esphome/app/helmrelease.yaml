@@ -68,12 +68,12 @@ spec:
           main:
             main:
               - path: /config
-      secrets:
-        type: secret
-        name: esphome-secret
-        globalMounts:
-          - path: /config/secrets.yaml
-            subPath: secrets.yaml
+      # secrets:
+      #   type: secret
+      #   name: esphome-secret
+      #   globalMounts:
+      #     - path: /config/secrets.yaml
+      #       subPath: secrets.yaml
       esphome-cache:
         type: emptyDir
         globalMounts:
