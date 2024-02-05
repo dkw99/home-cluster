@@ -9,3 +9,4 @@ resources:
   - ./local-path-provisioner/ks.yaml
   - ./snapshot-controller/ks.yaml
   - ./volsync/ks.yaml
+  - ./kopia-web.ks.yaml
