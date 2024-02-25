@@ -110,8 +110,9 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: minio-nfs
-        mountPath: /data
+        type: nfs
+        server: "nfs1.${SECRET_PRIVATE_DOMAIN}"
+        path: /volume1/k3sCluster/Apps/Minio
         globalMounts:
           - path: /data
 
