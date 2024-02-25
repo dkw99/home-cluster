@@ -112,6 +112,8 @@ spec:
         enabled: true
         existingClaim: minio-nfs
         mountPath: /data
+        globalMounts:
+          - path: /data
 
     resources:
       requests:
