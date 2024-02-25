@@ -1,4 +1,6 @@
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2beta2.json
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
   name: minio
@@ -32,65 +34,79 @@ spec:
               repository: quay.io/minio/minio
               tag: RELEASE.2024-02-17T01-15-57Z@sha256:f15edc84cc2a45b5fd57b5674100c0cf840468ab753dc962f65e7cf21f6ace89
             env:
-              TZ: "${TIMEZONE}"
+              MINIO_API_CORS_ALLOW_ORIGIN: https://minio.${SECRET_PUBLIC_DOMAIN},https://s3.${SECRET_PUBLIC_DOMAIN}
+              MINIO_BROWSER_REDIRECT_URL: https://minio.${SECRET_PUBLIC_DOMAIN}
+              MINIO_PROMETHEUS_JOB_ID: minio
+              MINIO_PROMETHEUS_URL: https://prometheus.${SECRET_PUBLIC_DOMAIN}
+              MINIO_PROMETHEUS_AUTH_TYPE: public
+              MINIO_SERVER_URL: https://s3.${SECRET_PUBLIC_DOMAIN}
               MINIO_UPDATE: "off"
-              #MINIO_PROMETHEUS_URL: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
-              #MINIO_PROMETHEUS_JOB_ID: minio
-              MINIO_BROWSER_REDIRECT_URL: "https://minio.${SECRET_PUBLIC_DOMAIN}"
-              MINIO_SERVER_URL: "https://s3.${SECRET_PUBLIC_DOMAIN}"
-              # MINIO_IDENTITY_OPENID_CONFIG_URL: "https://auth.${SECRET_PUBLIC_DOMAIN}/.well-known/openid-configuration"
-              # MINIO_IDENTITY_OPENID_CLIENT_ID: minio
-              # MINIO_IDENTITY_OPENID_CLIENT_SECRET: "${SECRET_MINIO_OAUTH_CLIENT_SECRET}"
-              # MINIO_IDENTITY_OPENID_SCOPES: "openid,profile,email,groups"
-              # MINIO_IDENTITY_OPENID_REDIRECT_URI: "https://minio.${SECRET_PUBLIC_DOMAIN}/oauth_callback"
             envFrom:
               - secretRef:
                   name: minio-secret
-            args: ["server", "/data", "--console-address", ":9001"]
+            args:
+              - server
+              - /data
+              - --console-address
+              - :9001
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /minio/health/live
+                    port: 9000
+                  initialDelaySeconds: 30
+                  periodSeconds: 30
+                  timeoutSeconds: 10
+                  failureThreshold: 6
+              readiness: *probes
+              startup:
+                enabled: false
+            securityContext:
+              runAsUser: 568
+              runAsGroup: 568
+              fsGroup: 568
+              fsGroupChangePolicy: OnRootMismatch
+              supplementalGroups: [100]
     service:
       main:
-        enabled: true
         ports:
           http:
-            port: &port-console 9001
-          api:
-            enabled: true
-            port: &port-api 9000
+            port: 9001
+          s3:
+            port: 9000
+    serviceMonitor:
+      main:
+        enabled: true
+        endpoints:
+          - port: s3
+            scheme: http
+            path: /minio/v2/metrics/cluster
+            interval: 1m
+            scrapeTimeout: 10s
     ingress:
       main:
         enabled: true
-        ingressClassName: "nginx-internal"
-        annotations:
-          nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
-          nginx.ingress.kubernetes.io/proxy-body-size: 5000m
-          nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
-          nginx.ingress.kubernetes.io/configuration-snippet: |
-            chunked_transfer_encoding off;
+        className: internal
         hosts:
-          - host: &host-console "{{ .Release.Name }}.${SECRET_PUBLIC_DOMAIN}"
+          - host: &host "{{ .Release.Name }}.${SECRET_PUBLIC_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
                 service:
-                  port: *port-console
-          - host: &host-api "s3.${SECRET_PUBLIC_DOMAIN}"
+                  name: main
+                  port: http
+          - host: &s3Host "{{ .Release.Name }}.${SECRET_PUBLIC_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
                 service:
-                  port: *port-api
+                  name: main
+                  port: s3
         tls:
           - hosts:
-              - *host-console
-              - *host-api
-            # secretName: "{{ .Release.Name }}-tls"
-    # podSecurityContext:
-    #   runAsUser: 1000
-    #   runAsGroup: 1000
-    #   fsGroup: 1000
-    #   fsGroupChangePolicy: "OnRootMismatch"
-    #   supplementalGroups:
-    #     - 100
+              - *host
+              - *s3Host
     persistence:
       config:
         enabled: true
