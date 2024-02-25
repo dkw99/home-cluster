@@ -1,46 +1,52 @@
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: &app minio
-  namespace: default
+  name: minio
 spec:
-  interval: 15m
+  interval: 30m
   chart:
     spec:
       chart: app-template
       version: 2.6.0
       sourceRef:
         kind: HelmRepository
-        name: bjw-s-charts
+        name: bjw-s
         namespace: flux-system
   install:
-    createNamespace: true
     remediation:
-      retries: 5
+      retries: 3
   upgrade:
+    cleanupOnFail: true
     remediation:
-      retries: 5
+      retries: 3
+  uninstall:
+    keepHistory: false
   values:
-    image:
-      repository: quay.io/minio/minio
-      tag: RELEASE.2023-08-31T15-31-16Z
-    env:
-      TZ: "${TIMEZONE}"
-      MINIO_UPDATE: "off"
-      MINIO_PROMETHEUS_URL: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
-      MINIO_PROMETHEUS_JOB_ID: minio
-      MINIO_BROWSER_REDIRECT_URL: "https://minio.${SECRET_PUBLIC_DOMAIN}"
-      MINIO_SERVER_URL: "https://s3.${SECRET_PUBLIC_DOMAIN}"
-      # MINIO_IDENTITY_OPENID_CONFIG_URL: "https://auth.${SECRET_PUBLIC_DOMAIN}/.well-known/openid-configuration"
-      # MINIO_IDENTITY_OPENID_CLIENT_ID: minio
-      # MINIO_IDENTITY_OPENID_CLIENT_SECRET: "${SECRET_MINIO_OAUTH_CLIENT_SECRET}"
-      # MINIO_IDENTITY_OPENID_SCOPES: "openid,profile,email,groups"
-      # MINIO_IDENTITY_OPENID_REDIRECT_URI: "https://minio.${SECRET_PUBLIC_DOMAIN}/oauth_callback"
-    envFrom:
-      - secretRef:
-          name: *app
-    args: ["server", "/data", "--console-address", ":9001"]
+    controllers:
+      main:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
+          main:
+            image:
+              repository: quay.io/minio/minio
+              tag: RELEASE.2024-02-17T01-15-57Z@sha256:f15edc84cc2a45b5fd57b5674100c0cf840468ab753dc962f65e7cf21f6ace89
+            env:
+              TZ: "${TIMEZONE}"
+              MINIO_UPDATE: "off"
+              MINIO_PROMETHEUS_URL: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
+              MINIO_PROMETHEUS_JOB_ID: minio
+              MINIO_BROWSER_REDIRECT_URL: "https://minio.${SECRET_PUBLIC_DOMAIN}"
+              MINIO_SERVER_URL: "https://s3.${SECRET_PUBLIC_DOMAIN}"
+              # MINIO_IDENTITY_OPENID_CONFIG_URL: "https://auth.${SECRET_PUBLIC_DOMAIN}/.well-known/openid-configuration"
+              # MINIO_IDENTITY_OPENID_CLIENT_ID: minio
+              # MINIO_IDENTITY_OPENID_CLIENT_SECRET: "${SECRET_MINIO_OAUTH_CLIENT_SECRET}"
+              # MINIO_IDENTITY_OPENID_SCOPES: "openid,profile,email,groups"
+              # MINIO_IDENTITY_OPENID_REDIRECT_URI: "https://minio.${SECRET_PUBLIC_DOMAIN}/oauth_callback"
+            envFrom:
+              - secretRef:
+                  name: *app
+            args: ["server", "/data", "--console-address", ":9001"]
     service:
       main:
         enabled: true
