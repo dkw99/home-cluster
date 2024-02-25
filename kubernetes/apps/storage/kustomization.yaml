@@ -10,4 +10,4 @@ resources:
   - ./snapshot-controller/ks.yaml
   - ./volsync/ks.yaml
   - ./kopia-web/ks.yaml
-  - ./minio
+  - ./minio/ks.yaml
