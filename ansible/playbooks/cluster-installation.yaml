@@ -12,7 +12,7 @@
     - name: Check if cluster is installed
       check_mode: false
       ansible.builtin.stat:
-        path: /etc/rancher/k3s/config.yaml
+        path: /etc/rancher/k3s/config.yaml1
       register: k3s_installed
 
     - name: Ignore manifests templates and urls if the cluster is already installed
