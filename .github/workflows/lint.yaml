@@ -17,7 +17,7 @@ jobs:
       with:
         fetch-depth: 1
     - name: Lint YAML
-      uses: ibiqlik/action-yamllint@v3
+      uses: ibiqlik/action-yamllint@2576378a8e339169678f9939646ee3ee325e845c # v3
       with:
         file_or_dir: "./kubernetes"
         config_file: "./.github/yamllint.config.yaml"
