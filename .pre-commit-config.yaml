@@ -1,20 +1,20 @@
 fail_fast: false
 repos:
 - repo: https://github.com/adrienverge/yamllint.git
-  rev: v1.25.0
+  rev: v1.35.1
   hooks:
   - args:
     - -c
     - .github/yamllint.config.yaml
     id: yamllint
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v3.4.0
+  rev: v4.5.0
   hooks:
   - id: trailing-whitespace
   - id: end-of-file-fixer
   - id: mixed-line-ending
 - repo: https://github.com/Lucas-C/pre-commit-hooks
-  rev: v1.1.9
+  rev: v1.5.5
   hooks:
   - id: remove-crlf
   - id: remove-tabs
@@ -22,7 +22,7 @@ repos:
   rev: 0.2.0
   hooks:
   - id: fix-smartquotes
-- repo: https://github.com/k8s-at-home/sops-pre-commit
-  rev: v1.1.0
+- repo: https://github.com/yuvipanda/pre-commit-hook-ensure-sops
+  rev: v1.1
   hooks:
-  - id: sops-encrypted-check
+  - id: sops-encryption
