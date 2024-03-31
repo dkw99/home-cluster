@@ -52,6 +52,8 @@ spec:
               tag: 2024.3.3@sha256:a4c2b7a75e8d5168a9e9f78d9d9f7f36435e2da07899e7faf5f6e3cdc4eebe56
             env:
               TZ: Australia/Sydney
+              HASS_HTTP_TRUSTED_PROXY_1: 192.168.16.0/24
+              HASS_HTTP_TRUSTED_PROXY_2: 10.42.0.0/16
             envFrom: *envFrom
             probes:
               liveness:
