@@ -1,8 +1,7 @@
 ignore: |
   .github/
   crds.yaml
-  secret.sops.yaml
-  *secret*.sops.yaml
+  *.sops.yaml
 
 extends: default
 rules:
