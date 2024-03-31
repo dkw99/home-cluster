@@ -19,5 +19,5 @@ jobs:
     - name: Lint YAML
       uses: ibiqlik/action-yamllint@v3
       with:
-        file_or_dir: "./cluster"
+        file_or_dir: "./kubernetes"
         config_file: "./.github/yamllint.config.yaml"
