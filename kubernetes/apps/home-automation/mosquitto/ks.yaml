@@ -7,8 +7,8 @@ metadata:
   namespace: flux-system
 spec:
   targetNamespace: home-automation
-  #dependsOn:
-  #  - name: external-secrets-stores
+  # dependsOn:
+    # - name: external-secrets-stores
   path: ./kubernetes/apps/home-automation/mosquitto/app
   prune: true
   sourceRef:
