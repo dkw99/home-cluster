@@ -21,10 +21,10 @@ spec:
         annotations:
           secret.reloader.stakater.com/reload: esphome-secrets,esphome-deploykey
         containers:
-          main:
+          app:
             image:
               repository: ghcr.io/esphome/esphome
-              tag: 2024.2.1
+              tag: 2024.3.1
             probes:
               liveness:
                 enabled: false
@@ -40,33 +40,32 @@ spec:
                 memory: 2048M
 
     service:
-      main:
+      app:
+        controller: esphome
         ports:
           http:
             port: 6052
 
     ingress:
-      main:
-        enabled: true
-        className: "internal"
+      app:
+        className: "internal-nginx"
         hosts:
-          - host: "${HOSTNAME}"
+          - host: &hostName esphome.${SECRET_DOMAIN}
             paths:
               - path: /
                 service:
-                  name: main
+                  identifier: app
                   port: http
         tls:
           - hosts:
-              - "${HOSTNAME}"
+              - *hostName
 
     persistence:
       config:
-        enabled: true
-        existingClaim: "${VOLSYNC_CLAIM}"
+        existingClaim: esphome-config
         advancedMounts:
-          main:
-            main:
+          esphome:
+            app:
               - path: /config
       # secrets:
       #   type: secret
