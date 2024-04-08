@@ -30,6 +30,9 @@ spec:
             env:
               TZ: Australia/Sydney
               ESPHOME_DASHBOARD_USE_PING: true
+              PLATFORMIO_CORE_DIR: .plattformio
+              PLATFORMIO_GLOBALLIB_DIR: .plattformioLibs
+              PIP_CACHE_DIR: "/config/.pip"
             probes:
               liveness:
                 enabled: false
