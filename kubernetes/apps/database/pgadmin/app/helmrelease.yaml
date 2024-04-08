@@ -21,12 +21,14 @@ spec:
     strategy:
       type: Recreate
 
-    envFrom: &envFrom
-      - secretRef:
-        name: pgadmin-secret
-    # env:
-    #   email: ${SECRET_ACME_EMAIL}
+    envVarsFromSecrets:
+      - pgadmin-secret
+    env:
+      email: ${PGADMIN_EMAIL}
     #   password: ${SECRET_PGADMIN_PASSWORD}
+    existingSecret: pgadmin-secret
+    secretKeys:
+      pgadminPasswordKey: password
     ingress:
       enabled: true
       ingressClassName: "internal"
