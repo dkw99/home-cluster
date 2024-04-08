@@ -29,17 +29,18 @@ spec:
     #   password: ${SECRET_PGADMIN_PASSWORD}
     ingress:
       enabled: true
-      annotations:
-        ingressClassName: "internal"
+      ingressClassName: "internal"
       hosts:
-        - host: &hostName pgadmin.${SECRET_PUBLIC_DOMAIN}
+        - host: pgadmin.${SECRET_DOMAIN}
           paths:
             - path: /
               pathType: Prefix
+
       tls:
-        - hosts:
-            - *hostName
-          secretName: pgadmin-tls
+        - secretName: pgadmin-tls
+          hosts:
+            - pgadmin.${SECRET_DOMAIN}
+
     persistentVolume:
       enabled: true
       existingClaim: pgadmin-config-v1
