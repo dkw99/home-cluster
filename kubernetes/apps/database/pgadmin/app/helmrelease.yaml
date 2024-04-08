@@ -20,12 +20,16 @@ spec:
       tag: "7.6"
     strategy:
       type: Recreate
-    env:
-      email: ${SECRET_PGADMIN_EMAIL}
-      password: ${SECRET_PGADMIN_PASSWORD}
+
+    envFrom: &envFrom
+      - secretRef:
+          name: pgadmin-secret
+    # env:
+    #   email: ${SECRET_ACME_EMAIL}
+    #   password: ${SECRET_PGADMIN_PASSWORD}
     ingress:
       enabled: true
-      ingressClassName: "nginx"
+      ingressClassName: "internal"
       hosts:
         - host: &host pgadmin.${SECRET_PUBLIC_DOMAIN}
           paths:
