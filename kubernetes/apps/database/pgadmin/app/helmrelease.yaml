@@ -23,9 +23,9 @@ spec:
     env:
       email: ${SECRET_ACME_EMAIL}
     #   password: ${SECRET_PGADMIN_PASSWORD}
-    # existingSecret: pgadmin-secret
-    # secretKeys:
-    #   pgadminPasswordKey: password
+    existingSecret: pgadmin-secret
+    secretKeys:
+      pgadminPasswordKey: password
     ingress:
       enabled: true
       ingressClassName: "internal"
