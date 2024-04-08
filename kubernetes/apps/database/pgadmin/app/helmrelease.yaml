@@ -23,7 +23,7 @@ spec:
 
     envFrom: &envFrom
       - secretRef:
-          name: pgadmin-secret
+        name: pgadmin-secret
     # env:
     #   email: ${SECRET_ACME_EMAIL}
     #   password: ${SECRET_PGADMIN_PASSWORD}
