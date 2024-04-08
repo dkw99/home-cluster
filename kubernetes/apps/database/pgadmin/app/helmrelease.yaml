@@ -5,7 +5,7 @@ metadata:
   name: pgadmin
   namespace: &app database
 spec:
-  interval: 30m
+  interval: 60m
   chart:
     spec:
       chart: pgadmin4
