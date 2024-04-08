@@ -24,7 +24,7 @@ spec:
     envVarsFromSecrets:
       - pgadmin-secret
     env:
-      email: ${PGADMIN_EMAIL}
+      email: ${SECRET_ACME_EMAIL}
     #   password: ${SECRET_PGADMIN_PASSWORD}
     existingSecret: pgadmin-secret
     secretKeys:
