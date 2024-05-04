@@ -87,7 +87,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: mealie
+        existingClaim: mealie-config
         globalMounts:
           - path: /app/data
       # backups:
