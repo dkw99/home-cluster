@@ -21,12 +21,11 @@ spec:
   trigger:
     schedule: 0 7 * * *
   restic:
-    copyMethod: Snapshot
+    copyMethod: Clone
     pruneIntervalDays: 7
     repository: mealie-restic
     cacheCapacity: 8Gi
     cacheStorageClassName: openebs-hostpath
-    volumeSnapshotClassName: local-hostpath
     storageClassName: local-hostpath
     moverSecurityContext:
       runAsUser: 568
