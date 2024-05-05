@@ -43,7 +43,7 @@ spec:
       externalAttacher:
         enabled: false
       externalSnapshotter:
-        enabled: false
+        enabled: true
     csiDriver:
       name: local-hostpath.cluster.local
       storageCapacity: true

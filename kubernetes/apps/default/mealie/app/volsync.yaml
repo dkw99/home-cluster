@@ -26,7 +26,7 @@ spec:
     repository: mealie-restic
     cacheCapacity: 8Gi
     cacheStorageClassName: openebs-hostpath
-    volumeSnapshotClassName: openebs-hostpath
+    volumeSnapshotClassName: local-hostpath
     storageClassName: local-hostpath
     moverSecurityContext:
       runAsUser: 568
