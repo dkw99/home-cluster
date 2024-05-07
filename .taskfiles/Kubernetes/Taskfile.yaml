@@ -60,9 +60,8 @@ tasks:
         cluster: Cluster to run command against (required)
     cmds:
       - for: ["Evicted", "Failed", "Succeeded"]
-        cmd: kubectl --context {{.cluster}} delete pods --field-selector status.phase={{.ITEM}} -A --ignore-not-found=true
-    requires:
-      vars: ["cluster"]
+        cmd: kubectl  delete pods --field-selector status.phase={{.ITEM}} -A --ignore-not-found=true
+
 
   .reset:
     internal: true
