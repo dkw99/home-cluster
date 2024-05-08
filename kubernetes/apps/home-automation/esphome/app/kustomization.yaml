@@ -4,4 +4,5 @@ kind: Kustomization
 resources:
   - ./claim.yaml
   - ./secret.sops.yaml
+  - ./secret.sops-deploykey.yaml
   - ./helmrelease.yaml
