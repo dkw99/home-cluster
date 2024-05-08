@@ -101,3 +101,10 @@ spec:
         globalMounts:
           - path: ~/.ssh/id_ed25519
             subPath: id_ed25519
+      ssh-config:
+        type: secret
+        name: esphome-ssh-config
+        defaultMode: 256
+        globalMounts:
+          - path: ~/.ssh/config
+            subPath: config
