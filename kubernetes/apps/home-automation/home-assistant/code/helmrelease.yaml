@@ -94,3 +94,10 @@ spec:
       esphome:
         enabled: true
         existingClaim: esphome-config
+      deploy-key:
+        type: secret
+        name: esphome-deploykey
+        defaultMode: 256
+        globalMounts:
+          - path: ~/.ssh/id_ed25519
+            subPath: id_ed25519
