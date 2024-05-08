@@ -17,6 +17,13 @@ spec:
         namespace: flux-system
 
   values:
+    defaultPodOptions:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsUser: 568
+        runAsGroup: 568
+        fsGroup: 568
+        fsGroupChangePolicy: "OnRootMismatch"
     controllers:
       esphome:
         annotations:
@@ -91,17 +98,3 @@ spec:
           esphome:
             app:
               - path: /config/.esphome
-      deploy-key:
-        type: secret
-        name: esphome-deploykey
-        defaultMode: 256
-        globalMounts:
-          - path: /root/.ssh/id_ed25519
-            subPath: id_ed25519
-      ssh-config:
-        type: secret
-        name: esphome-ssh-config
-        defaultMode: 256
-        globalMounts:
-          - path: /root/.ssh/config
-            subPath: config
