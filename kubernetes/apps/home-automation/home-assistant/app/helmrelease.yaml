@@ -105,9 +105,8 @@ spec:
                   port: http
         tls:
           - hosts:
-              - *host
               - *customHost
-
+            secretName: hass-tls
     persistence:
       config:
         enabled: true
