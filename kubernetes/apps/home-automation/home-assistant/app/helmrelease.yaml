@@ -84,7 +84,7 @@ spec:
                   port: http
     persistence:
       config:
-        existingClaim: home-assistant
+        existingClaim: home-assistant-config
       logs:
         type: emptyDir
         globalMounts:
