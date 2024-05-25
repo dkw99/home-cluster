@@ -107,7 +107,7 @@ spec:
         tls:
           - hosts:
               - *customHost
-            secretName: hass-tls
+            # secretName: hass-tls
     persistence:
       config:
         enabled: true
