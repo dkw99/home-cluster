@@ -105,6 +105,6 @@ spec:
       usb:
         type: hostPath
         hostPath: /dev/serial/by-id/usb-0658_0200-if00
-        hostPathType: CharDevice
+        # hostPathType: CharDevice
         globalMounts:
           - path: /dev/serial/by-id/usb-0658_0200-if00
