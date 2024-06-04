@@ -54,7 +54,7 @@ spec:
         rollOutPods: true
         ingress:
           enabled: true
-          className: exgternal
+          className: external
           hosts: ["hubble.${SECRET_DOMAIN}"]
     operator:
       prometheus:
@@ -71,6 +71,6 @@ spec:
         enabled: true
         trustCRDsExist: true
     dashboards:
-      enabled: true
+      enabled: false
       annotations:
         grafana_folder: Cilium
