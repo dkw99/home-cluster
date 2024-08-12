@@ -9,3 +9,4 @@ resources:
   - ./k8s-gateway/ks.yaml
   - ./nas/ks.yaml
   - ./nginx/ks.yaml
+  - ./radarr/ks.yaml
