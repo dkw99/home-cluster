@@ -67,9 +67,6 @@ spec:
         - zone: home.lan
           port: 53
           plugins:
-            - name: errors
-            - name: cache
-              parameters: 30
             - name: forward
               parameters: . 192.168.16.1
     affinity:
