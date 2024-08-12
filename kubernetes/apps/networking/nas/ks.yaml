@@ -6,11 +6,11 @@ metadata:
   name: &app nas
   namespace: flux-system
 spec:
-  targetNamespace: network
+  targetNamespace: networking
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./kubernetes/apps/network/nas/app
+  path: ./kubernetes/apps/networking/nas/app
   sourceRef:
     kind: GitRepository
     name: home-kubernetes
