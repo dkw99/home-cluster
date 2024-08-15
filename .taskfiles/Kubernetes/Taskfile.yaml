@@ -62,6 +62,29 @@ tasks:
       - for: ["Evicted", "Failed", "Succeeded"]
         cmd: kubectl  delete pods --field-selector status.phase={{.ITEM}} -A --ignore-not-found=true
 
+  apply-ks:
+    desc: Apply a Flux Kustomization resource for a cluster
+    summary: |
+      cluster: Cluster to run command against (required)
+      path: Path to the Flux Kustomization resource (required)
+      ns: Namespace the Flux Kustomization exists in (default: flux-system)
+    cmd: |
+      flux  build ks $(basename {{.path}}) \
+          --namespace {{.ns}} \
+          --kustomization-file {{.KUBERNETES_DIR}}/apps/{{.path}}/ks.yaml \
+          --path {{.KUBERNETES_DIR}}//apps/{{.path}} \
+          {{- if contains "not found" .ks }}--dry-run \{{ end }}
+      | \
+      kubectl  apply --server-side \
+          --field-manager=kustomize-controller -f -
+    requires:
+      vars: ["path"]
+    vars:
+      ns: '{{.ns | default "flux-system"}}'
+      ks:
+        sh: flux  --namespace {{.ns}} get kustomizations $(basename {{.path}}) 2>&1
+    preconditions:
+      - test -f {{.KUBERNETES_DIR}}/apps/{{.path}}/ks.yaml
 
   .reset:
     internal: true

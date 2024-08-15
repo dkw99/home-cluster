@@ -7,8 +7,6 @@ resources:
   - ./echo-server/ks.yaml
   - ./external-dns/ks.yaml
   - ./k8s-gateway/ks.yaml
+  - ./media-pvr-ext/ks.yaml
   - ./nas/ks.yaml
   - ./nginx/ks.yaml
-  - ./radarr/ks.yaml
-  - ./.sonarr/ks.yaml
-  - ./sabnzbd/ks.yaml
