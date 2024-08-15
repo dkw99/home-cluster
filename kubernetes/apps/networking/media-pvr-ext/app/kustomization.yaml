@@ -5,7 +5,9 @@ kind: Kustomization
 resources:
   - ./service.yaml
   - ./heimdall/ingress.yaml
+  - ./prowlarr/ingress.yaml
+  - ./qbit/ingress.yaml
   - ./radarr/ingress.yaml
   - ./sonarr/ingress.yaml
   - ./sabnzbd/ingress.yaml
-  - ./qbit/ingress.yaml
+
