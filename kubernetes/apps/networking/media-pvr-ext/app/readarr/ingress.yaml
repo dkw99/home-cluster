@@ -18,4 +18,4 @@ spec:
               service:
                 name: media-pvr-ext
                 port:
-                  number: 6767
+                  number: 8787
