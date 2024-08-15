@@ -5,7 +5,6 @@ kind: Kustomization
 resources:
   - ./service.yaml
   - ./bazarr/ingress.yaml
-  - ./flaresolverr/ingress.yaml
   - ./heimdall/ingress.yaml
   - ./openspeedtest/ingress.yaml
   - ./prowlarr/ingress.yaml
