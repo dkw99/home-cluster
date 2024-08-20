@@ -58,7 +58,7 @@
         "ghcr.io/bjw-s",
         "ghcr.io/onedr0p",
         "ghcr.io/recyclarr",
-        "ghcr.io/unpackerr",
+        "ghcr.io/unpackerr"
       ]
     },
     {
@@ -66,7 +66,6 @@
       "matchManagers": ["github-actions"],
       "automerge": true,
       "automergeType": "branch",
-      "ignoreTests": true,
       "matchUpdateTypes": ["minor", "patch", "digest"]
     },
     // groups
