@@ -34,9 +34,9 @@ spec:
               tag: 0.17.0@sha256:51784ce0961940846f4f47cab2d4f58e2e0cb467de357f9a80279b149a00c06e
             env:
               TZ: "Australia/Sydney"
-            envFrom:
-              - secretRef:
-                  name: kopia-secret
+            # envFrom:
+            #   - secretRef:
+            #       name: kopia-secret
             args:
               - server
               - start
@@ -46,7 +46,7 @@ spec:
               - --override-hostname
               - nfs1.${SECRET_PRIVATE_DOMAIN}
               - --override-username
-              - dkw99
+              - root
               - --without-password
               - --metrics-listen-addr
               - 0.0.0.0:8080
