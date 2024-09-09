@@ -31,6 +31,7 @@ spec:
   #   - name: volsync
   #     namespace: storage
   values:
+
     controllers:
       home-assistant:
         annotations:
@@ -56,6 +57,14 @@ spec:
                 cpu: 10m
               limits:
                 memory: 1Gi
+        initContainers:
+          init-db:
+            image:
+              repository: ghcr.io/onedr0p/postgres-init
+              tag: 16
+            envFrom: &envFrom
+              - secretRef:
+                  name: home-assistant-secret
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
