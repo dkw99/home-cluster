@@ -29,7 +29,7 @@ spec:
       repository: oriedge/k8s_gateway
       tag: v0.4.0
     replicaCount: 1
-    domain: ${DOMAIN}
+    domain: ${SECRET_DOMAIN}
     service:
       type: LoadBalancer
       annotations:
